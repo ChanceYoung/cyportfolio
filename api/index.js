@@ -4,7 +4,12 @@ const socketPost = require('./Data/socket/socketpostfile')
 const Post = require('./Models/Post')
 const app = express()
 const port = 8080
-require('dotenv').config()
+const dotenv = require('dotenv')
+const result = dotenv.config({ path: '../.env' })
+
+if (result.error) {
+    console.log(result.error)
+}
 
 app.use(express.json())
 
