@@ -2,9 +2,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">
-                    Chance Young Portfolio
-                </a>
+                <a className="navbar-brand">Chance Young Portfolio</a>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -22,19 +20,16 @@ const Navbar = () => {
                 >
                     <ul className="navbar-nav">
                         {/* <li className="nav-item">
-                            <a className="nav-link" href="#">
+                            <a className="nav-link" >
                                 Resume
                             </a>
                         </li> */}
                         <li className="nav-item">
-                            <a className="nav-link" href="#">
-                                Contact
-                            </a>
+                            <a className="nav-link">Contact</a>
                         </li>
                         <li className="nav-item dropdown">
                             <a
                                 className="nav-link dropdown-toggle"
-                                href="#"
                                 id="navbarDropdownMenuLink"
                                 role="button"
                                 data-bs-toggle="dropdown"
@@ -47,17 +42,15 @@ const Navbar = () => {
                                 aria-labelledby="navbarDropdownMenuLink"
                             >
                                 <li>
-                                    <a className="dropdown-item" href="#">
-                                        Socket
-                                    </a>
+                                    <a className="dropdown-item">Socket</a>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item" href="#">
+                                    <a className="dropdown-item">
                                         Another action
                                     </a>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item" href="#">
+                                    <a className="dropdown-item">
                                         Something else here
                                     </a>
                                 </li>

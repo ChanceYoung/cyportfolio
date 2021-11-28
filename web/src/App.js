@@ -1,5 +1,4 @@
 import ContactForm from './Components/ContactForm'
-import PostDetail from './Components/PostDetail'
 import SummaryList from './Components/SummaryList'
 import { getPosts } from './Services/apiService'
 

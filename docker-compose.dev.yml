@@ -1,0 +1,36 @@
+volumes:
+    src:
+        name: 'frontend_vol' 
+
+services:
+    web: 
+        container_name: web
+        build: 
+            context: ./web
+            dockerfile: dev.Dockerfile
+        restart: always
+        volumes:
+            - src:/app/src/
+        ports:
+            - 3001:3000
+    api:
+        container_name: api
+        build:
+            context: ./api
+            dockerfile: Dockerfile
+        ports:
+          - 8080:8080
+    postgres:
+        container_name: db
+        image: postgres:10.5
+        restart: always
+        environment:
+            - POSTGRES_USER=chance
+            - POSTGRES_PASSWORD=chancetest
+            - POSTGRES_DB=chance
+        ports:
+            - '5438:5432'
+        volumes:
+            - ./database/postgres-data:/var/lib/postgresql/data
+            - ./database/scripts:/docker-entrypoint-initdb.d/
+

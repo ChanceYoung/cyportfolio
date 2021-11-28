@@ -1,0 +1,15 @@
+services:
+  app:
+    container_name: app
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+  backend:
+    container_name: backend
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
