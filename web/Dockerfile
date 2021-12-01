@@ -1,26 +1,18 @@
-FROM node:14-alpine AS builder
+FROM node:14-alpine AS client_builder
 WORKDIR /app
 
 COPY package.json .
 COPY package-lock.json .
 
 RUN npm install --silent
-
-
 COPY . .
-
-EXPOSE 3000
 
 RUN npm run build
 
 # Bundle static assets with nginx
-FROM nginx:1.21.0-alpine
+FROM nginx
 
 # Copy built assets from builder
-COPY --from=builder /app/build /usr/share/nginx/html
-# Add your nginx.conf
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=client_builder /app/build /usr/share/nginx/html
 # Expose port
 EXPOSE 80
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]

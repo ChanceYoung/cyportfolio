@@ -1,23 +1,23 @@
 const express = require('express')
 const nodemailer = require('nodemailer')
-const socketPost = require('./Data/socket/socketpostfile')
-const Post = require('./Models/Post')
 const app = express()
 const port = 8080
 const Pool = require('pg').Pool
+
+const dotenv = require('dotenv')
+const result = dotenv.config({ path: './api.env' })
+
+if (result.error) {
+    console.log(result.error)
+}
+
 const pool = new Pool({
-    user: 'chance',
-    host: 'db',
-    database: 'chance',
-    password: 'chancetest',
+    user: process.env.POSTGRES_USER,
+    host: process.env.POSTGRES_HOST,
+    database: process.env.POSTGRES_DB,
+    password: process.env.POSTGRES_PASSWORD,
     port: 5432,
 })
-// const dotenv = require('dotenv')
-// const result = dotenv.config({ path: '../.env' })
-
-// if (result.error) {
-//     console.log(result.error)
-// }
 
 app.use(express.json())
 
@@ -50,30 +50,30 @@ app.get('/assoc', (req, res) => {
     })
 })
 
-// app.post('/email', (req, res) => {
-//     const transport = nodemailer.createTransport({
-//         service: 'gmail',
-//         auth: {
-//             user: process.env.NODEMAILER_EMAIL,
-//             pass: process.env.NODEMAILER_PASS,
-//         },
-//     })
-//     const mailOptions = {
-//         from: process.env.NODEMAILER_EMAIL,
-//         to: process.env.NODEMAILER_EMAIL,
-//         subject: `from: ${req.body.sender_name}`,
-//         text: req.body.message,
-//     }
+app.post('/email', (req, res) => {
+    const transport = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.NODEMAILER_EMAIL,
+            pass: process.env.NODEMAILER_PASS,
+        },
+    })
+    const mailOptions = {
+        from: process.env.NODEMAILER_EMAIL,
+        to: process.env.NODEMAILER_EMAIL,
+        subject: `from: ${req.body.sender_name}`,
+        text: req.body.message,
+    }
 
-//     transport.sendMail(mailOptions, (err, res) => {
-//         if (err) {
-//             console.log('failed to send email')
-//         } else {
-//             console.log('email sent')
-//         }
-//     })
-//     res.sendStatus(200)
-// })
+    transport.sendMail(mailOptions, (err, res) => {
+        if (err) {
+            console.log('failed to send email')
+        } else {
+            console.log('email sent')
+        }
+    })
+    res.sendStatus(200)
+})
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

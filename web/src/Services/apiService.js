@@ -7,5 +7,13 @@ export const sendEmailBody = async (email_info) => {
 
 export const getPosts = async () => {
     const posts = await axios.get('/posts')
-    return posts.data
+    const filteredposts = posts.data.map((post) => {
+        return {
+            id: post.id,
+            title: post.title,
+            goal: post.goal,
+            full: post.full_body,
+        }
+    })
+    return filteredposts
 }
