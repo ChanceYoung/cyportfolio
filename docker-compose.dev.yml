@@ -4,7 +4,9 @@ services:
         build: 
             context: ./web
             dockerfile: dev.Dockerfile
-        restart: always
+        volumes:
+            - ./web/public:/app/public
+            - ./web/src:/app/src
         ports:
             - 3001:3000
         depends_on:
@@ -13,9 +15,13 @@ services:
         container_name: api
         build:
             context: ./api
-            dockerfile: Dockerfile
+            dockerfile: dev.Dockerfile
+        volumes:
+            - ./api:/app/api
         ports:
-          - 8080:8080
+            - 8080:8080
+        depends_on:
+            - db
     db:
         container_name: db
         image: postgres:10.5
@@ -26,6 +32,4 @@ services:
             - POSTGRES_DB=${POSTGRES_DB}
         volumes:
             - ./database/postgres-data:/var/lib/postgresql/data
-            - ./database/scripts:/docker-entrypoint-initdb.d/
-        depends_on:
-          - api
+            - ./database/scripts:/docker-entrypoint-initdb.d

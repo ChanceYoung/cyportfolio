@@ -2,7 +2,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand">Chance Young Portfolio</a>
+                <a className="navbar-brand">Chance Young P</a>
                 <button
                     className="navbar-toggler"
                     type="button"
