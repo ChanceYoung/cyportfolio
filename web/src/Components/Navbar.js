@@ -1,8 +1,13 @@
+import {NavLink} from 'react-router-dom'
+
 const Navbar = () => {
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <div className="container-fluid">
-                <a className="navbar-brand">Chance Young P</a>
+            <NavLink className='rounded bg-secondary' to='/'>
+            <img src="https://images2.imgbox.com/6a/91/zvA8P9Va_o.png" alt="image host"/>
+            </NavLink>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -18,43 +23,9 @@ const Navbar = () => {
                     className="collapse navbar-collapse"
                     id="navbarNavDropdown"
                 >
-                    <ul className="navbar-nav">
-                        {/* <li className="nav-item">
-                            <a className="nav-link" >
-                                Resume
-                            </a>
-                        </li> */}
+                    <ul className="navbar-nav ps-2">
                         <li className="nav-item">
-                            <a className="nav-link">Contact</a>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a
-                                className="nav-link dropdown-toggle"
-                                id="navbarDropdownMenuLink"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                Projects
-                            </a>
-                            <ul
-                                className="dropdown-menu"
-                                aria-labelledby="navbarDropdownMenuLink"
-                            >
-                                <li>
-                                    <a className="dropdown-item">Socket</a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item">
-                                        Another action
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item">
-                                        Something else here
-                                    </a>
-                                </li>
-                            </ul>
+                            <NavLink className="nav-link" to='/aboutme'>About Me</NavLink>
                         </li>
                     </ul>
                 </div>

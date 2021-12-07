@@ -22,7 +22,7 @@ const pool = new Pool({
 
 app.use(express.json())
 
-app.get('/posts', (req, res) => {
+app.get('/api/posts', (req, res) => {
     pool.query('Select * from post', (err, resp) => {
         if (err) {
             console.log(err)
@@ -51,7 +51,7 @@ app.get('/assoc', (req, res) => {
     })
 })
 
-app.post('/email', (req, res) => {
+app.post('/api/email', (req, res) => {
     const transport = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -77,5 +77,5 @@ app.post('/email', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`API is now listening at http://localhost:${port}`)
 })

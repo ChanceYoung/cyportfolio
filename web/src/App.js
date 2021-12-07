@@ -1,31 +1,20 @@
-import ContactForm from './Components/ContactForm'
-import SummaryList from './Components/SummaryList'
-import { getPosts } from './Services/apiService'
-
-import { useState, useEffect } from 'react'
 import Navbar from './Components/Navbar'
+import { Routes, Route } from 'react-router-dom'
+import MainView from './views/MainView'
+import ResumeView from './views/ResumeView'
+import ProjectView from './views/ProjectView'
 
 function App() {
-    const [posts, setPosts] = useState([])
-    useEffect(() => {
-        async function getPostsAsync() {
-            const posts = await getPosts()
-            setPosts(posts)
-        }
-        getPostsAsync()
-    }, [])
+
 
     return (
         <>
             <Navbar />
-            <div className="App container">
-                <div className="row justify-content-center">
-                    <ContactForm />
-                </div>
-                <div className="row justify-content-center">
-                    <SummaryList listofposts={posts} />
-                </div>
-            </div>
+            <Routes>
+            <Route exact path='/' element={<MainView/>}/>
+            <Route path='/aboutme' element={<ResumeView/>}/>
+            <Route path='/projects/:id' element={<ProjectView/>}/>
+            </Routes>
         </>
     )
 }
