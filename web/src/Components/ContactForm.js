@@ -32,7 +32,7 @@ const ContactForm = () => {
             <div className='card col-md-4 bg-secondary m-2'>
             <div className='card-body'>
             <h2 className="card-title text-white mb-1">Contact Me</h2>
-            <div className='card-text text-white mb-2'>Fill out this form and I will receive and email from you!</div>
+            <div className='card-text text-white mb-2'>Fill out this form and I will receive an email from you!</div>
             <form onSubmit={sendMessageHandler}>
                 <TextInput inputControl={name} />
                 <TextAreaInput inputControl={message} numRows={6} />
