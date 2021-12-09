@@ -20,7 +20,6 @@ services:
         ports:
           - 8080:8080
     db:
-        container_name: db
         image: postgres:10.5
         restart: always
         environment:
