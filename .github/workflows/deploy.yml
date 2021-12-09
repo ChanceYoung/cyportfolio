@@ -12,6 +12,15 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v2.4.0
+      
+      - name: environment variables
+        env: 
+          POSTGRES_USER: ${{secrets.POSTGRES_USER}}
+          POSTGRES_PASSWORD: ${{secrets.POSTGRES_PASSWORD}}
+          POSTGRES_DB: ${{secrets.POSTGRES_DB}}
+          POSTGRES_HOST: ${{secrets.POSTGRES_HOST}}
+          NODEMAILER_EMAIL: ${{secrets.NODEMAILER_EMAIL}}
+          NODEMAILER_PASS: ${{secrets.NODEMAILER_PASS}}
 
       - name: build and test
         run: |
