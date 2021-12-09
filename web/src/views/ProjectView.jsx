@@ -14,6 +14,7 @@ const ProjectView = () => {
         }
         getPostbyIdAsync()
     }, [id])
+    
     return (
         <div className='container bg-secondary rounded'>
             <div className='row text-center text-white'>
