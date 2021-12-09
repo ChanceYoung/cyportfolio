@@ -82,6 +82,6 @@ This results in us being able to have two clients, send and receive messages on 
   - Bootstrap:
    [https://getbootstrap.com/docs/5.0/getting-started/introduction/](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
    
-  - BootSwatch: [https://bootswatch.com/](https://bootswatch.com/)')
+  - BootSwatch: [https://bootswatch.com/](https://bootswatch.com/)');
 /*Post-Skill associations*/
 INSERT INTO post_skill_assoc values(1,1),(1,2),(1,3),(1,4);
