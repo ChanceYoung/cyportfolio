@@ -11,14 +11,16 @@ const ResumeView = () => {
     }
   
     return (
-      <div>
+      <div className='container'>
+        <div className='d-flex justify-content-center bg-secondary rounded'>
         <Document
+        className='pt-4'
           file={ChanceYoungResume}
           onLoadSuccess={onDocumentLoadSuccess}
         >
           <Page pageNumber={pageNumber} />
         </Document>
-        <p>Page {pageNumber} of {numPages}</p>
+        </div>
       </div>
     );
 }

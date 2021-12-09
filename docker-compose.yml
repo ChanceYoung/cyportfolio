@@ -26,7 +26,9 @@ services:
             - POSTGRES_DB=${POSTGRES_DB}
             - NODEMAILER_EMAIL=${NODEMAILER_EMAIL}
             - NODEMAILER_PASS=${NODEMAILER_PASS}
+            - NODE_ENV=prod
     database:
+        container_name: database
         image: postgres:10.5
         restart: always
         environment:

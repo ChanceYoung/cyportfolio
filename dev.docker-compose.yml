@@ -18,6 +18,8 @@ services:
             dockerfile: dev.Dockerfile
         volumes:
             - ./api:/app/api
+        environment:
+            - NODE_ENV=dev
         ports:
             - 8080:8080
         depends_on:
