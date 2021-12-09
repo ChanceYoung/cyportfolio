@@ -1,12 +1,13 @@
 import axios from 'axios'
 
 export const sendEmailBody = async (email_info) => {
-    const email = await axios.post('/email', { ...email_info })
+    const email = await axios.post( '/api/email', { ...email_info })
     return email.data
 }
 
 export const getPosts = async () => {
-    const posts = await axios.get('/posts')
+    const posts = await axios.get('/api/posts')
+    console.log(posts.data)
     const filteredposts = posts.data.map((post) => {
         return {
             id: post.id,

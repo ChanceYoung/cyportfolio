@@ -11,7 +11,6 @@ if (result.error) {
     console.log(result.error)
 }
 
-
 const pool = new Pool({
     user: process.env.POSTGRES_USER,
     host: process.env.POSTGRES_HOST,
