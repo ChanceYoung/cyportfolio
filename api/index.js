@@ -4,12 +4,12 @@ const app = express()
 const port = 8080
 const Pool = require('pg').Pool
 
-const dotenv = require('dotenv')
-const result = dotenv.config({ path: './api.env' })
+// const dotenv = require('dotenv')
+// const result = dotenv.config({ path: './api.env' })
 
-if (result.error) {
-    console.log(result.error)
-}
+// if (result.error) {
+//     console.log(result.error)
+// }
 
 const pool = new Pool({
     user: process.env.POSTGRES_USER,
