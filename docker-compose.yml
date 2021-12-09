@@ -31,4 +31,4 @@ services:
             - ./database/postgres-data:/var/lib/postgresql/data
             - ./database/scripts/:/docker-entrypoint-initdb.d
         depends_on:
-          - api
+          - backend
