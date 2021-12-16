@@ -115,6 +115,6 @@ By using this docker compose file, we can now spin up a stack that is our app. t
 docker compose up --build -d -f dev.docker-compose.yml 
 
 This command will build our images defined in our file, and then spin up the stack we have specified in the dev.docker-compose.yml file.'
- )
+ );
 /*Post-Skill associations*/
 INSERT INTO post_skill_assoc values(1,1),(1,2),(1,3),(1,4);
