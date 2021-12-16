@@ -10,6 +10,7 @@ const SummaryList = ({ listofposts }) => {
     return (
         <>
             {listofposts.map((post) => (
+                <div className='row'>
                 <div className="card w-50" key={post.id}>
                     <div className="card-body">
                         <h5 className="card-title">{post.title}</h5>
@@ -22,6 +23,7 @@ const SummaryList = ({ listofposts }) => {
                             View
                         </button>
                     </div>
+                </div>
                 </div>
             ))}
         </>
