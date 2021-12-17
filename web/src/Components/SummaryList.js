@@ -10,7 +10,7 @@ const SummaryList = ({ listofposts }) => {
     return (
         <>
             {listofposts.map((post) => (
-                <div className="card w-50 col" key={post.id}>
+                <div className="card w-50 col p-1" key={post.id}>
                     <div className="card-body">
                         <h5 className="card-title">{post.title}</h5>
                         <ReactMarkdown>{post.goal}</ReactMarkdown>
