@@ -1,18 +1,16 @@
 const express = require('express')
 const nodemailer = require('nodemailer')
 const app = express()
-const port = 8080
+const port = process.env.PORT || 8080
 const Pool = require('pg').Pool
 const dotenv = require('dotenv')
 
+if (process.env.NODE_ENV == 'dev') {
+    const result = dotenv.config({ path: './api.env' })
 
-if(process.env.NODE_ENV == 'dev')
-{
-const result = dotenv.config({ path: './api.env' })
-
-if (result.error) {
-    console.log(result.error)
-}
+    if (result.error) {
+        console.log(result.error)
+    }
 }
 
 const pool = new Pool({
@@ -35,14 +33,17 @@ app.get('/api/posts', (req, res) => {
 })
 
 app.get('/api/tags', (req, res) => {
-    pool.query(`select * from skill
+    pool.query(
+        `select * from skill
     inner join post_skill_assoc
-    on skill.id = post_skill_assoc.skill_id`, (err, resp) => {
-        if (err) {
-            console.log(err)
+    on skill.id = post_skill_assoc.skill_id`,
+        (err, resp) => {
+            if (err) {
+                console.log(err)
+            }
+            res.send(JSON.stringify(resp.rows))
         }
-        res.send(JSON.stringify(resp.rows))
-    })
+    )
 })
 
 app.get('/assoc', (req, res) => {
@@ -86,5 +87,4 @@ app.post('/api/email', (req, res) => {
 app.listen(port, () => {
     console.log(`API is now listening at http://localhost:${port}`)
     console.log('TEMPORARY MESSAGING LOGS\n')
-
 })
