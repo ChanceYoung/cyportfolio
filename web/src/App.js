@@ -5,15 +5,13 @@ import ResumeView from './views/ResumeView'
 import ProjectView from './views/ProjectView'
 
 function App() {
-
-
     return (
         <>
             <Navbar />
             <Routes>
-            <Route exact path='/' element={<MainView/>}/>
-            <Route path='/aboutme' element={<ResumeView/>}/>
-            <Route path='/projects/:id' element={<ProjectView/>}/>
+                <Route exact path="/" element={<ResumeView />} />
+                {/* <Route path='/aboutme' element={<ResumeView/>}/>
+            <Route path='/projects/:id' element={<ProjectView/>}/> */}
             </Routes>
         </>
     )
