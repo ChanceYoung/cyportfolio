@@ -9,13 +9,12 @@ function App() {
         <>
             <Navbar />
             <Routes>
-                <Route exact path="/" element={<div>Hello?</div>} />
-                {/* <Route exact path="/" element={<ResumeView />} />
-                <Route path='/aboutme' element={<ResumeView/>}/>
-            <Route path='/projects/:id' element={<ProjectView/>}/>  */}
+                <Route exact path="/" element={<ResumeView />} />
+                <Route path="/aboutme" element={<ResumeView />} />
+                <Route path="/projects/:id" element={<ProjectView />} />
             </Routes>
         </>
     )
 }
 
-export default App
+export default App / root / cyportfolio / web / build
