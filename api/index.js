@@ -23,7 +23,7 @@ const pool = new Pool({
 
 app.use(express.json())
 
-app.get('/api/posts', (req, res) => {
+app.get('/posts', (req, res) => {
     pool.query('Select * from post', (err, resp) => {
         if (err) {
             console.log(err)
@@ -32,7 +32,7 @@ app.get('/api/posts', (req, res) => {
     })
 })
 
-app.get('/api/tags', (req, res) => {
+app.get('/tags', (req, res) => {
     pool.query(
         `select * from skill
     inner join post_skill_assoc
@@ -56,7 +56,7 @@ app.get('/assoc', (req, res) => {
     })
 })
 
-app.post('/api/email', (req, res) => {
+app.post('/email', (req, res) => {
     // const transport = nodemailer.createTransport({
     //     service: 'gmail',
     //     auth: {
