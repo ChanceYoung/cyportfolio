@@ -17,4 +17,4 @@ function App() {
     )
 }
 
-export default App / root / cyportfolio / web / build
+export default App
