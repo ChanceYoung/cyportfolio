@@ -9,7 +9,7 @@ function App() {
         <>
             <Navbar />
             <Routes>
-                <Route exact path="/" element={<ResumeView />} />
+                <Route exact path="/" element={<MainView />} />
                 <Route path="/aboutme" element={<ResumeView />} />
                 <Route path="/projects/:id" element={<ProjectView />} />
             </Routes>
