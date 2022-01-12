@@ -24,6 +24,7 @@ const pool = new Pool({
 app.use(express.json())
 
 app.get('/posts', (req, res) => {
+    console.log('hit the posts endpoint')
     pool.query('Select * from post', (err, resp) => {
         if (err) {
             console.log(err)
