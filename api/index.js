@@ -13,12 +13,18 @@ if (process.env.NODE_ENV == 'dev') {
     }
 }
 
-const pool = new Pool()
+const pool = new Pool({
+    user: process.env.POSTGRES_USER,
+    host: process.env.POSTGRES_HOST,
+    database: process.env.POSTGRES_DB,
+    password: process.env.POSTGRES_PASSWORD,
+    port: 5432,
+})
 
 app.use(express.json())
 
 app.get('/posts', (req, res) => {
-    console.log('hit the posts endpoint')
+    console.log('hit the posts')
     pool.query('Select * from post', (err, resp) => {
         if (err) {
             console.log(err)

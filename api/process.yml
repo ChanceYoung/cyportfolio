@@ -1,25 +1,10 @@
 apps:
   - script: './index.js'
     exec_mode: 'fork'
-    name: 'worker-0'
+    name: 'portfolioapi'
     env:
-      PORT: 3500
-      NODE_ENV: production
-  - script: './index.js'
-    exec_mode: 'fork'
-    name: 'worker-1'
-    env:
-      PORT: 3501
-      NODE_ENV: production
-  - script: './index.js'
-    exec_mode: 'fork'
-    name: 'worker-2'
-    env:
-      PORT: 3502
-      NODE_ENV: production
-  - script: './index.js'
-    exec_mode: 'fork'
-    name: 'worker-3'
-    env:
-      PORT: 3503
-      NODE_ENV: production
+      PORT: 8080
+      POSTGRES_USER: "chance"
+      POSTGRES_HOST: "127.0.0.1"
+      POSTGRES_DB: "chance"
+      POSTGRES_PASSWORD: "4682Chance"
