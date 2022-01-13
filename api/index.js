@@ -13,6 +13,12 @@ if (process.env.NODE_ENV == 'dev') {
     }
 }
 
+console.log('current env variables')
+console.log(process.env.POSTGRES_USER)
+console.log(process.env.POSTGRES_HOST)
+console.log(process.env.POSTGRES_DB)
+console.log(process.env.POSTGRES_PASSWORD)
+
 const pool = new Pool({
     user: process.env.POSTGRES_USER,
     host: process.env.POSTGRES_HOST,
