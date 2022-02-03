@@ -11,7 +11,9 @@ export const getPosts = async () => {
     const tags = await axios.get('/api/tags')
 
     const filteredposts = posts.data.map((post) => {
-        const filteredskills = tags.data.filter((tag) => tag.post_id == post.id)
+        const filteredskills = tags.data.filter(
+            (tag) => tag.post_id === post.id
+        )
         const skills = filteredskills.map((skill) => skill.skill_name)
         return {
             id: post.id,
@@ -27,9 +29,11 @@ export const getPostbyId = async (id) => {
     const posts = await axios.get('/api/posts')
     const tags = await axios.get('/api/tags')
 
-    const filteredpost = posts.data.filter((post) => post.id == id)
+    const filteredpost = posts.data.filter((post) => post.id === id)
     const post = filteredpost.map((post) => {
-        const filteredskills = tags.data.filter((tag) => tag.post_id == post.id)
+        const filteredskills = tags.data.filter(
+            (tag) => tag.post_id === post.id
+        )
         const skills = filteredskills.map((skill) => skill.skill_name)
         return {
             id,

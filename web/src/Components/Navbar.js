@@ -1,13 +1,15 @@
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
-
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <div className="container-fluid">
-            <NavLink className='rounded bg-secondary' to='/'>
-            <img src="https://images2.imgbox.com/6a/91/zvA8P9Va_o.png" alt="image host"/>
-            </NavLink>
+                <NavLink className="rounded bg-secondary" to="/">
+                    <img
+                        src="https://images2.imgbox.com/6a/91/zvA8P9Va_o.png"
+                        alt="image host"
+                    />
+                </NavLink>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -25,10 +27,15 @@ const Navbar = () => {
                 >
                     <ul className="navbar-nav ps-2">
                         <li className="nav-item">
-                            <NavLink className="nav-link" to='/aboutme'>About Me</NavLink>
+                            <NavLink className="nav-link" to="/aboutme">
+                                About Me
+                            </NavLink>
                         </li>
                     </ul>
                 </div>
+                <h1 className="line-1 anim-typewriter p-1">
+                    Chance Young Web Development
+                </h1>
             </div>
         </nav>
     )
