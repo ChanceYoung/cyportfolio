@@ -3,15 +3,6 @@ const nodemailer = require('nodemailer')
 const app = express()
 const port = process.env.PORT || 8080
 const Pool = require('pg').Pool
-const dotenv = require('dotenv')
-
-if (process.env.NODE_ENV == 'dev') {
-    const result = dotenv.config({ path: './api.env' })
-
-    if (result.error) {
-        console.log(result.error)
-    }
-}
 
 const pool = new Pool({
     user: process.env.POSTGRES_USER,
@@ -90,6 +81,6 @@ app.post('/email', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`API is now listening at http://localhost:${port}`)
+    console.log(`API is now listening on ${port}`)
     console.log('TEMPORARY MESSAGING LOGS\n')
 })

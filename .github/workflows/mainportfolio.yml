@@ -30,6 +30,6 @@ jobs:
       # git secret reveal
       - name: Run a multi-line script
         run: |
-          cd cyportfolio/api
+          cd api
           npm install --silent
           pm2 start process.yml

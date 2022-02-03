@@ -1,0 +1,10 @@
+apps:
+  - script: './index.js'
+    exec_mode: 'fork'
+    name: 'portfolioapi'
+    env:
+      POSTGRES_USER: "postgres"  
+      POSTGRES_HOST: "localhost"
+      POSTGRES_DB: "postgres"
+      POSTGRES_PASSWORD: "password"
+      PORT: 3501
