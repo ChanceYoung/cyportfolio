@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+export const sendEmailBody = async () => {}
+
 export const getPosts = async () => {
     const posts = await axios.get('/api/posts')
     return posts.data

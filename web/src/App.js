@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import MainView from './views/MainView'
 import ResumeView from './views/ResumeView'
 import ProjectView from './views/ProjectView'
+import LoginView from './views/LoginView'
 
 function App() {
     return (
