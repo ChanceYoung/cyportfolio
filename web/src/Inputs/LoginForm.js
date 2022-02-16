@@ -1,7 +1,7 @@
 import useInput from '../hooks/use-input'
 import TextInput from './TextInput'
 import { useState } from 'react'
-import { onUserLogin } from '../services/apiService'
+import { onUserLogin } from '../Services/apiService'
 
 const LoginForm = () => {
     const [isSuccess, setIsSuccess] = useState(false)
