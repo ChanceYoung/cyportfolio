@@ -28,7 +28,12 @@ jobs:
 
       # Runs a set of commands using the runners shell
       # git secret reveal
-      - name: Run a multi-line script
+      - name: Spin up portfolio api
+        env:
+          POR_POSTGRES_USER: ${{ secrets.PORPU }}
+          POR_POSTGRES_HOST: ${{ secrets.PORPH }}
+          POR_POSTGRES_DB: ${{ secrets.PORDB }}
+          POR_POSTGRES_PASSWORD: ${{ secrets.PORPASS }}
         run: |
           cd api
           npm install --silent

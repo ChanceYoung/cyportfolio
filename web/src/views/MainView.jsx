@@ -37,9 +37,9 @@ const MainView = () => {
             <div className="row justify-content-center">
                 <SummaryList listofposts={posts} />
             </div>
-            <div className="row justify-content-center">
+            {/* <div className="row justify-content-center">
                 <ContactForm />
-            </div>
+            </div> */}
         </div>
     )
 }
