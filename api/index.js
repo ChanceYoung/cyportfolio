@@ -31,7 +31,10 @@ app.get('/posts', (req, res) => {
 app.post('/login', (req, res) => {
     const logininfo = req.body
     console.log(logininfo)
-    res.sendStatus(200)
+    res.cookie('Token', 'All your base belong to us', {
+        sameSite: 'none',
+        httpOnly: true,
+    })
     //pull salt and hashed password
     //salt and hash passed in password
     //bcrypt.verify
