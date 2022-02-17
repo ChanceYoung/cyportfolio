@@ -21,7 +21,10 @@ const LoginForm = () => {
         e.preventDefault()
         if ((username.isValid, password.isValid)) {
             setWasSubmitted(true)
-            const success = await onUserLogin({ username, password })
+            const success = await onUserLogin({
+                username: username.value,
+                password: password.value,
+            })
             if (success) {
                 setIsSuccess(true)
             } else {
