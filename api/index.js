@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
 })
 
 app.get('/posts', (req, res) => {
-    ;``
     pool.query('Select * from portfolio.post', (err, resp) => {
         if (err) {
             console.log(err)
@@ -35,6 +34,7 @@ app.post('/login', (req, res) => {
         sameSite: 'none',
         httpOnly: true,
     })
+    res.sendStatus(200)
     //pull salt and hashed password
     //salt and hash passed in password
     //bcrypt.verify
