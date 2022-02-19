@@ -1,44 +1,45 @@
 const express = require('express')
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
 const app = express()
 const port = process.env.PORT || 8080
-const Pool = require('pg').Pool
 const bcrypt = require('bcrypt')
+const dbservice = require('./dbservice')
 
-const pool = new Pool({
-    user: process.env.POR_POSTGRES_USER,
-    host: process.env.POR_POSTGRES_HOST,
-    database: process.env.POR_POSTGRES_DB,
-    password: process.env.POR_POSTGRES_PASSWORD,
-    port: 5432,
-})
-
+app.use(cookieParser())
+app.use(session({ secret: process.env.SESSION_SECRET }))
 app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send('hit the cyportfolio api')
 })
 
-app.get('/posts', (req, res) => {
-    pool.query('Select * from portfolio.post', (err, resp) => {
-        if (err) {
-            console.log(err)
-        }
-        res.send(JSON.stringify(resp.rows))
-    })
+app.get('/posts', async (req, res) => {
+    const results = await dbservice.getPosts()
+    res.send(JSON.stringify(results))
 })
 
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
     const logininfo = req.body
-    console.log(logininfo)
-    res.cookie('Token', 'All your base belong to us', {
-        sameSite: 'none',
-        httpOnly: true,
-    })
-    res.sendStatus(200)
     //pull salt and hashed password
-    //salt and hash passed in password
-    //bcrypt.verify
+    const dbresult = await dbservice.getUserPasswd(logininfo.username)
+    const isVerified = bcrypt.compare(
+        logininfo.password,
+        dbresult.hashed_password
+    )
+    if (isVerified) {
+        //do session stuff
+    } else {
+        res.sendStatus(403)
+    }
     //set cookie
+})
+app.get('/secure', (req, res) => {
+    req.cookies
+})
+app.get('/logout', (req, res) => {
+    //remove user and session id from the database table
+    res.clearCookie('')
 })
 
 app.listen(port, () => {

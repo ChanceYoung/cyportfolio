@@ -49,7 +49,9 @@ const LoginForm = () => {
                 <div className="text-success pt-2">Successfully logged in!</div>
             )}
             {!isSuccess && wasSubmitted && (
-                <div className="text-danger pt-2">That was not successful</div>
+                <div className="text-danger pt-2">
+                    Username or Password is incorrect
+                </div>
             )}
         </div>
     )
