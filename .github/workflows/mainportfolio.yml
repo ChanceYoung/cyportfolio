@@ -31,7 +31,9 @@ jobs:
           POR_POSTGRES_PASSWORD: ${{ secrets.PORPASS }}
         run: |
           cd /home/chance/actions-runner/main/cyportfolio/cyportfolio/api/
+          pwd
           npm install --silent
+          ls
           pm2 reload process.yml
   
   push_to_registry:
