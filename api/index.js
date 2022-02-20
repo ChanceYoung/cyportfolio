@@ -50,3 +50,9 @@ app.get('/logout', (req, res) => {
 app.listen(port, () => {
     console.log(`API is now listening on ${port}`)
 })
+
+process.on('SIGINT', function () {
+    db.stop(function (err) {
+        process.exit(err ? 1 : 0)
+    })
+})
