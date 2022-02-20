@@ -36,9 +36,10 @@ jobs:
   
   push_to_registry:
     name: Push Docker image to Docker Hub
-    runs-on: [self-hosted, chancesvm]
     needs:
     [run_api]
+    runs-on: [self-hosted, chancesvm]
+
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
