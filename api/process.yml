@@ -2,6 +2,6 @@ apps:
   - script: './index.js'
     exec_mode: 'fork'
     name: 'portfolioapi'
+    max_restarts: 5
     env:
-
       PORT: 3501

@@ -8,7 +8,7 @@ const pool = new Pool({
     port: 5432,
 })
 
-const getPosts = () => {
+const getPosts = async () => {
     try {
         const res = await pool.query('Select * from portfolio.post')
         return res.rows
@@ -17,7 +17,7 @@ const getPosts = () => {
     }
 }
 
-const getUserPasswd = (username) => {
+const getUserPasswd = async (username) => {
     try {
         const res = await pool.query(
             'Select user_id, hashed_password from portfolio.session_user where username = ?',
@@ -29,7 +29,7 @@ const getUserPasswd = (username) => {
     }
 }
 
-const addSessionInfo = (userid, sessionid, username) => {
+const addSessionInfo = async (userid, sessionid, username) => {
     try {
         const res = await pool.query(
             'insert into portfolio.session_info(user_id, username, express_session_id) values(?,?,?)',
