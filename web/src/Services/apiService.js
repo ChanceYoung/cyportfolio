@@ -17,3 +17,8 @@ export const onUserLogin = async (logininfo) => {
     const loginResult = await axios.post('/api/login', { ...logininfo })
     return loginResult.status === 200
 }
+
+export const verifySession = async () => {
+    const verifiedResult = await axios.get('/secure', { withCredentials: true })
+    return verifiedResult.status === 200
+}

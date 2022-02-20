@@ -16,6 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   run_api:
+    name: Respin API with PM2
     runs-on: [self-hosted, chancesvm]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -36,6 +37,8 @@ jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: [self-hosted, chancesvm]
+    needs:
+    [run_api]
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2

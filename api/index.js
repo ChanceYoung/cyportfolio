@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt')
 const dbservice = require('./dbservice')
 
 app.use(cookieParser())
-app.use(session({ secret: process.env.SESSION_SECRET }))
+app.use(session({ secret: 'somesecret' }))
 app.use(express.json())
 
 app.get('/', (req, res) => {
@@ -28,14 +28,19 @@ app.post('/login', async (req, res) => {
         dbresult.hashed_password
     )
     if (isVerified) {
-        //do session stuff
+        const sessionResult = await dbservice.addSessionInfo(
+            dbresult.user_id,
+            req.sessionID,
+            logininfo.username
+        )
+        req.session.cookie.maxAge = 15 * 60 * 1000
+        res.sendStatus(200)
     } else {
         res.sendStatus(403)
     }
-    //set cookie
 })
 app.get('/secure', (req, res) => {
-    req.cookies
+    console.log(req.cookies.connect.sid)
 })
 app.get('/logout', (req, res) => {
     //remove user and session id from the database table

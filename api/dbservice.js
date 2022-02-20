@@ -20,7 +20,7 @@ const getPosts = () => {
 const getUserPasswd = (username) => {
     try {
         const res = await pool.query(
-            'Select hashed_password from portfolio.session_user where username = ?',
+            'Select user_id, hashed_password from portfolio.session_user where username = ?',
             [username]
         )
         return res.rows[0]
@@ -29,4 +29,15 @@ const getUserPasswd = (username) => {
     }
 }
 
-module.exports = { getPosts, getUserPasswd }
+const addSessionInfo = (userid, sessionid, username) => {
+    try {
+        const res = await pool.query(
+            'insert into portfolio.session_info(user_id, username, express_session_id) values(?,?,?)',
+            [userid, username, sessionid]
+        )
+        return res.rows
+    } catch (err) {
+        return err.stack
+    }
+}
+module.exports = { getPosts, getUserPasswd, addSessionInfo }
