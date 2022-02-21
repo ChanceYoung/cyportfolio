@@ -31,10 +31,8 @@ jobs:
           POR_POSTGRES_PASSWORD: ${{ secrets.PORPASS }}
         run: |
           cd /home/chance/actions-runner/main/cyportfolio/cyportfolio/api/
-          touch allyourbasebelongtous.txt
           npm install --silent
           pm2 reload process.yml
-  
   push_to_registry:
     name: Push Docker image to Docker Hub
     needs:
