@@ -10,7 +10,7 @@ const pool = new Pool({
 
 const getPosts = async () => {
     try {
-        const res = await pool.query('Select * from portfolio.post')
+        const res = await pool.query('Select * from portfolio.post;')
         return res.rows
     } catch (err) {
         return err.stack
@@ -22,7 +22,7 @@ const getUserPasswd = async (username) => {
     console.log(username)
     try {
         const res = await pool.query(
-            'Select user_id, hashed_password from portfolio.session_user where username = ?',
+            'Select user_id, hashed_password from portfolio.session_user where username = ?;',
             [username]
         )
         return res.rows[0]
@@ -38,7 +38,7 @@ const addSessionInfo = async (userid, sessionid, username) => {
     console.log(username)
     try {
         const res = await pool.query(
-            'insert into portfolio.session_info(user_id, username, express_session_id) values(?,?,?)',
+            'insert into portfolio.session_info(user_id, username, express_session_id) values(?,?,?);',
             [userid, username, sessionid]
         )
         return res.rows
