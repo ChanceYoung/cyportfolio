@@ -18,6 +18,8 @@ const getPosts = async () => {
 }
 
 const getUserPasswd = async (username) => {
+    console.log('hit user passwd')
+    console.log(username)
     try {
         const res = await pool.query(
             'Select user_id, hashed_password from portfolio.session_user where username = ?',
@@ -30,6 +32,10 @@ const getUserPasswd = async (username) => {
 }
 
 const addSessionInfo = async (userid, sessionid, username) => {
+    console.log('adding session info...')
+    console.log(userid)
+    console.log(sessionid)
+    console.log(username)
     try {
         const res = await pool.query(
             'insert into portfolio.session_info(user_id, username, express_session_id) values(?,?,?)',
