@@ -21,12 +21,14 @@ app.get('/posts', async (req, res) => {
 
 app.post('/login', async (req, res) => {
     const logininfo = req.body
-    //pull salt and hashed password
+    console.log(logininfo)
     const dbresult = await dbservice.getUserPasswd(logininfo.username)
+    console.log(dbresult)
     const isVerified = bcrypt.compare(
         logininfo.password,
         dbresult.hashed_password
     )
+    console.log(req.sessionID)
     if (isVerified) {
         const sessionResult = await dbservice.addSessionInfo(
             dbresult.user_id,
