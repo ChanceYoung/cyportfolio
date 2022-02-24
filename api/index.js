@@ -1,25 +1,6 @@
-const express = require('express')
-const session = require('express-session')
-const cookieParser = require('cookie-parser')
-const cors = require('cors')
-const app = express()
-const port = process.env.PORT || 8080
 const bcrypt = require('bcrypt')
 const dbservice = require('./services/dbservice')
-const { v4: uuidv4 } = require('uuid')
-
-app.use(cors())
-app.use(cookieParser())
-app.use(
-    session({
-        genid: (req) => uuidv4(),
-        secret: 'thisissecretyesyes',
-        saveUninitialized: true,
-        cookie: { maxAge: oneDay },
-        resave: false,
-    })
-)
-app.use(express.json())
+const { app, startServer } = require('./configs/appConfig')
 
 app.use('/secure', (req, res) => {})
 
@@ -69,10 +50,4 @@ app.get('/logout', async (req, res) => {
     )
 })
 
-app.listen(port, () => {
-    console.log(`API is now listening on ${port}`)
-})
-
-process.on('SIGINT', function () {
-    process.exit(err ? 1 : 0)
-})
+startServer()
