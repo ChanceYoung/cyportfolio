@@ -6,7 +6,7 @@ const app = express()
 const port = process.env.PORT || 8080
 const bcrypt = require('bcrypt')
 const dbservice = require('./services/dbservice')
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require('uuid')
 
 app.use(cors())
 app.use(cookieParser())
@@ -21,9 +21,7 @@ app.use(
 )
 app.use(express.json())
 
-app.use('/secure', (req, res) => {
-    
-})
+app.use('/secure', (req, res) => {})
 
 app.get('/', (req, res) => {
     res.send('hit the cyportfolio api')
@@ -62,11 +60,13 @@ app.post('/login', async (req, res) => {
 app.get('/secure', (req, res) => {
     res.sendStatus(200)
 })
+
 app.get('/logout', async (req, res) => {
     res.clearCookie('connect.sid')
     req.session.destroy()
-    const sessionRemoved = await dbservice.session.removeSession(req.cookies['connect.sid'])
-    if(sessionRemoved.OK)
+    const sessionRemoved = await dbservice.session.removeSession(
+        req.cookies['connect.sid']
+    )
 })
 
 app.listen(port, () => {
