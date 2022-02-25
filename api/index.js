@@ -7,8 +7,8 @@ cookieExpiration.setTime(cookieExpiration.getTime() + 30 * 60 * 1000)
 
 app.use('/secure', async (req, res, next) => {
     const sessionID = req.cookies.session.sessionID
-    console.log(sessionID)
     const verificationResult = await dbservice.session.checkSession(sessionID)
+    console.table(verificationResult)
     if (verificationResult.length > 0) next()
     else res.sendStatus(403)
 })
