@@ -7,7 +7,7 @@ const SecureView = () => {
         async function verifySessionAsync() {
             const results = await verifySession()
             console.log(results)
-            setverifiedResult(results)
+            setverifiedResult(results.username)
         }
         verifySessionAsync()
     }, [])
@@ -17,7 +17,7 @@ const SecureView = () => {
             You are not Authorized to be on this page.
         </div>
     ) : (
-        <div>Welcome, {verifiedResult.username}</div>
+        <div>Welcome, {verifiedResult}</div>
     )
 }
 

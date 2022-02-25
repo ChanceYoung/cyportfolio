@@ -35,8 +35,6 @@ const checkSession = async (session) => {
             'select express_session_id from portfolio.session_info where user_id = $1;',
             [userid]
         )
-        console.table(res.rows)
-        console.log(res.rows[0].express_session_id)
         if (res.rowCount > 0) {
             if (res.rows[0].express_session_id === sessionid) return true
             else return false
