@@ -17,4 +17,21 @@ const getUserPasswd = async (username) => {
     }
 }
 
-module.exports = { getUserPasswd }
+const getUserById = (userid) => {
+    console.log('getting user by id')
+    try {
+        const res = await pool.query(
+            'Select username from portfolio.session_user where user_id = $1;',
+            [userid]
+        )
+        if (res.rowCount > 0) {
+            return res.rows[0]
+        } else {
+            return null
+        }
+    } catch (err) {
+        return err.stack
+    }
+}
+
+module.exports = { getUserPasswd, getUserById }

@@ -19,6 +19,10 @@ export const onUserLogin = async (logininfo) => {
 }
 
 export const verifySession = async () => {
-    const verifiedResult = await axios.get('/secure', { withCredentials: true })
-    return verifiedResult.status === 200
+    const verifiedResult = await axios.get('/api/secure', {
+        withCredentials: true,
+    })
+    console.log(verifiedResult)
+    if (verifiedResult.status === 200) return verifiedResult.data
+    else return null
 }

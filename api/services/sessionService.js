@@ -12,4 +12,34 @@ const addSessionInfo = async (userid, sessionid, username) => {
         return err.stack
     }
 }
-module.exports = { addSessionInfo }
+
+const removeSession = async (sessionid) => {
+    console.log('removing session info...')
+    try {
+        const res = await pool.query(
+            'delete from portfolio.session_info where express_session_id = $1;',
+            [sessionid]
+        )
+        return res.rows
+    } catch (err) {
+        return err.stack
+    }
+}
+
+const checkSession = async (sessionid) => {
+    console.log('verifying session info...')
+    try {
+        const res = await pool.query(
+            'select * from portfolio.session_info where express_session_id = $1;',
+            [sessionid]
+        )
+        if (res.rowCount > 0) {
+            return res.rows[0]
+        } else {
+            return null
+        }
+    } catch (err) {
+        return err.stack
+    }
+}
+module.exports = { addSessionInfo, removeSession, checkSession }

@@ -1,8 +1,15 @@
 const bcrypt = require('bcrypt')
 const dbservice = require('./services/dbservice')
+const { v4 } = require('uuid')
 const { app, startServer } = require('./configs/appConfig')
 
-app.use('/secure', (req, res) => {})
+app.use('/secure', async (req, res, next) => {
+    const sessionID = req.cookies.session.sessionID
+    console.log(sessionID)
+    const verificationResult = await dbservice.session.checkSession(sessionID)
+    if (verificationResult.length > 0) next()
+    else res.sendStatus(403)
+})
 
 app.get('/', (req, res) => {
     res.send('hit the cyportfolio api')
@@ -23,31 +30,39 @@ app.post('/login', async (req, res) => {
         logininfo.password,
         dbresult.hashed_password
     )
-    console.log(req.sessionID)
     if (isVerified) {
-        req.session.regenerate()
-        console.log(req.sessionID)
+        const sessionID = v4()
         const sessionResult = await dbservice.session.addSessionInfo(
             dbresult.user_id,
-            req.sessionID,
+            sessionID,
             logininfo.username
         )
-        req.session.cookie.maxAge = 15 * 60 * 1000
-        res.sendStatus(200)
+        res.cookie(
+            'session',
+            { sessionID, userid: dbresult.user_id },
+            {
+                httpOnly: true,
+                sameSite: 'strict',
+                expires: new Date.now() + 30 * 60 * 1000,
+            }
+        )
+        res.send(dbresult)
     } else {
         res.sendStatus(403)
     }
 })
-app.get('/secure', (req, res) => {
-    res.sendStatus(200)
+app.get('/secure', async (req, res) => {
+    const id = req.cookies.session.userid
+    const result = await dbservice.user.getUserById(id)
+    if (result === null) res.sendStatus(500)
+    else res.send(result)
 })
 
 app.get('/logout', async (req, res) => {
-    res.clearCookie('connect.sid')
-    req.session.destroy()
     const sessionRemoved = await dbservice.session.removeSession(
-        req.cookies['connect.sid']
+        req.cookies.session.sessionID
     )
+    res.clearCookie('sessionID')
 })
 
 startServer()
