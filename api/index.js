@@ -11,7 +11,7 @@ app.use('/secure', async (req, res, next) => {
     console.log(sessionID)
     const verificationResult = await dbservice.session.checkSession(sessionID)
     console.table(verificationResult)
-    if (verificationResult.length > 0) next()
+    if (verificationResult != null) next()
     else res.sendStatus(403)
 })
 
