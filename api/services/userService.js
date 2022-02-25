@@ -17,7 +17,7 @@ const getUserPasswd = async (username) => {
     }
 }
 
-const getUserById = (userid) => {
+const getUserById = async (userid) => {
     console.log('getting user by id')
     try {
         const res = await pool.query(
