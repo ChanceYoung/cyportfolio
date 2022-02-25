@@ -24,6 +24,7 @@ app.post('/login', async (req, res) => {
     const logininfo = req.body
     const dbresult = await dbservice.user.getUserPasswd(logininfo.username)
     console.log(dbresult)
+    console.log(dbresult === null)
     if (dbresult === null) {
         res.sendStatus(403)
     }
