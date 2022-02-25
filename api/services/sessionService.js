@@ -36,6 +36,7 @@ const checkSession = async (session) => {
             [userid]
         )
         console.table(res.rows)
+        console.log(res.rows[0].express_session_id)
         if (res.rowCount > 0) {
             if (res.rows[0].express_session_id === sessionid) return true
             else return false
