@@ -26,12 +26,14 @@ const removeSession = async (sessionid) => {
     }
 }
 
-const checkSession = async (sessionid) => {
+const checkSession = async (session) => {
     console.log('verifying session info...')
+    const sessionid = session.sessionID
+    const userid = session.userid
     try {
         const res = await pool.query(
-            'select * from portfolio.session_info where express_session_id = $1;',
-            [sessionid]
+            'select express_session_id from portfolio.session_info where user_id = $1;',
+            [userid]
         )
         console.table(res.rows)
         if (res.rowCount > 0) {
