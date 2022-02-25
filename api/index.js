@@ -6,9 +6,9 @@ var cookieExpiration = new Date()
 cookieExpiration.setTime(cookieExpiration.getTime() + 30 * 60 * 1000)
 
 app.use('/secure', async (req, res, next) => {
+    console.log('Hit /secure middleware')
     console.table(req.cookies)
     const sessionID = req.cookies.session.sessionID
-    console.log('Hit /secure middleware')
     const verificationResult = await dbservice.session.checkSession(sessionID)
     console.table(verificationResult)
     if (verificationResult != null) next()
