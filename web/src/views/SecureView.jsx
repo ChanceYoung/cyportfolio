@@ -6,6 +6,7 @@ const SecureView = () => {
     useEffect(() => {
         async function verifySessionAsync() {
             const results = await verifySession()
+            console.log(results)
             setverifiedResult(results)
         }
         verifySessionAsync()
