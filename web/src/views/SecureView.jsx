@@ -17,7 +17,7 @@ const SecureView = () => {
             You are not Authorized to be on this page.
         </div>
     ) : (
-        <div>Welcome, {verifiedResult}</div>
+        <div>Welcome, {verifiedResult.username}</div>
     )
 }
 
