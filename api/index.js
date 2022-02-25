@@ -7,6 +7,8 @@ cookieExpiration.setTime(cookieExpiration.getTime() + 30 * 60 * 1000)
 
 app.use('/secure', async (req, res, next) => {
     const sessionID = req.cookies.session.sessionID
+    console.log('Hit /secure middleware')
+    console.log(sessionID)
     const verificationResult = await dbservice.session.checkSession(sessionID)
     console.table(verificationResult)
     if (verificationResult.length > 0) next()
@@ -25,20 +27,15 @@ app.get('/posts', async (req, res) => {
 app.post('/login', async (req, res) => {
     const logininfo = req.body
     const dbresult = await dbservice.user.getUserPasswd(logininfo.username)
-    console.table(dbresult)
-    console.log(dbresult === null)
     if (dbresult === null) {
-        console.log('403 sent')
         res.sendStatus(403)
     } else {
         const isVerified = await bcrypt.compare(
             logininfo.password,
             dbresult.hashed_password
         )
-        console.log(isVerified)
         if (isVerified) {
             const sessionID = v4()
-            console.log(sessionID)
             const sessionResult = await dbservice.session.addSessionInfo(
                 dbresult.user_id,
                 sessionID,
