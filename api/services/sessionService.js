@@ -33,7 +33,7 @@ const checkSession = async (sessionid) => {
             'select * from portfolio.session_info where express_session_id = $1;',
             [sessionid]
         )
-        console.table(res)
+        console.table(res.rows)
         if (res.rowCount > 0) {
             return res.rows[0]
         } else {
