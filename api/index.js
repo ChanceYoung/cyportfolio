@@ -23,6 +23,7 @@ app.get('/posts', async (req, res) => {
 app.post('/login', async (req, res) => {
     const logininfo = req.body
     const dbresult = await dbservice.user.getUserPasswd(logininfo.username)
+    console.log(dbresult)
     if (dbresult === null) {
         res.sendStatus(403)
     }
@@ -30,8 +31,10 @@ app.post('/login', async (req, res) => {
         logininfo.password,
         dbresult.hashed_password
     )
+    console.log(isVerified)
     if (isVerified) {
         const sessionID = v4()
+        console.log(sessionID)
         const sessionResult = await dbservice.session.addSessionInfo(
             dbresult.user_id,
             sessionID,

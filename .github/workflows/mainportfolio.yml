@@ -30,6 +30,7 @@ jobs:
           pm2 delete portfolioapi          
           npm install --silent
           pm2 start process.yml
+          pm2 save
 
   push_to_registry:
     name: Push Docker image to Docker Hub
