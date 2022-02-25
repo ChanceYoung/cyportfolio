@@ -3,7 +3,7 @@ const dbservice = require('./services/dbservice')
 const { v4 } = require('uuid')
 const { app, startServer } = require('./configs/appConfig')
 var cookieExpiration = new Date()
-cookieExpiration.setTime(date.getTime() + 30 * 60 * 1000)
+cookieExpiration.setTime(cookieExpiration.getTime() + 30 * 60 * 1000)
 
 app.use('/secure', async (req, res, next) => {
     const sessionID = req.cookies.session.sessionID
