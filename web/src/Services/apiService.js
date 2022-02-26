@@ -25,3 +25,8 @@ export const verifySession = async () => {
     if (verifiedResult.status === 200) return verifiedResult.data
     else return null
 }
+
+export const logoutUser = async () => {
+    const result = await axios.get('/api/logout')
+    return result.status === 200
+}

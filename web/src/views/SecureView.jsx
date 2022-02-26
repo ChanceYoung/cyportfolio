@@ -1,4 +1,4 @@
-import { verifySession } from '../Services/apiService'
+import { verifySession, logoutUser } from '../Services/apiService'
 import { useEffect, useState } from 'react'
 
 const SecureView = () => {
@@ -11,12 +11,22 @@ const SecureView = () => {
         verifySessionAsync()
     }, [])
 
+    const logoutHandler = async () => {
+        const logoutResult = await logoutUser()
+        if (logoutResult) {
+            setverifiedResult(null)
+        }
+    }
+
     return verifiedResult === null ? (
-        <div className="text-danger">
+        <div className="text-danger container">
             You are not Authorized to be on this page.
         </div>
     ) : (
-        <div>Welcome, {verifiedResult}</div>
+        <div className="container">
+            <div>Welcome, {verifiedResult}</div>
+            <button onClick={logoutHandler}>Logout</button>
+        </div>
     )
 }
 

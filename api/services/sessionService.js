@@ -23,12 +23,12 @@ const addSessionInfo = async (userid, sessionid, username) => {
     }
 }
 
-const removeSession = async (sessionid) => {
+const removeSession = async (userid) => {
     console.log('removing session info...')
     try {
         const res = await pool.query(
-            'delete from portfolio.session_info where express_session_id = $1;',
-            [sessionid]
+            'delete from portfolio.session_info where user_id = $1;',
+            [userid]
         )
         return res.rows
     } catch (err) {

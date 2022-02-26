@@ -2,8 +2,6 @@ const bcrypt = require('bcrypt')
 const dbservice = require('./services/dbservice')
 const { v4 } = require('uuid')
 const { app, startServer } = require('./configs/appConfig')
-var cookieExpiration = new Date()
-cookieExpiration.setTime(cookieExpiration.getTime() + 30 * 60 * 1000)
 
 app.use('/secure', async (req, res, next) => {
     console.log('Hit /secure middleware')
@@ -36,6 +34,10 @@ app.post('/login', async (req, res) => {
         )
         if (isVerified) {
             const sessionID = v4()
+            var cookieExpiration = new Date()
+            cookieExpiration.setTime(
+                cookieExpiration.getTime() + 30 * 60 * 1000
+            )
             const sessionResult = await dbservice.session.addSessionInfo(
                 dbresult.user_id,
                 sessionID,
@@ -66,9 +68,10 @@ app.get('/secure', async (req, res) => {
 
 app.get('/logout', async (req, res) => {
     const sessionRemoved = await dbservice.session.removeSession(
-        req.cookies.session.sessionID
+        req.cookies.session.userid
     )
     res.clearCookie('sessionID')
+    res.sendStatus()
 })
 
 startServer()
