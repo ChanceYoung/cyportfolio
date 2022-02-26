@@ -41,6 +41,7 @@ app.post('/login', async (req, res) => {
                 sessionID,
                 logininfo.username
             )
+            res.clearCookie('session')
             res.cookie(
                 'session',
                 { sessionID, userid: dbresult.user_id },
