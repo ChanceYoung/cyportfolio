@@ -45,7 +45,7 @@ app.post('/login', async (req, res) => {
                 'session',
                 { sessionID, userid: dbresult.user_id },
                 {
-                    httpOnly: true,
+                    httpOnly: false,
                     sameSite: 'strict',
                     expires: cookieExpiration,
                 }
