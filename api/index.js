@@ -68,7 +68,7 @@ app.get('/logout', async (req, res) => {
     // const sessionRemoved = await dbservice.session.removeSession(
     //     req.cookies.session.userid
     // )
-    res.clearCookie('sessionID')
+    res.clearCookie('session')
     res.sendStatus(200)
 })
 
