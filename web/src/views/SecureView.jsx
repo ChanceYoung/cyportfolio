@@ -25,7 +25,7 @@ const SecureView = () => {
     ) : (
         <div className="container">
             <div>Welcome, {verifiedResult}</div>
-            <button onClick={logoutHandler}>Logout</button>
+            <button onClick={() => logoutHandler()}>Logout</button>
         </div>
     )
 }
