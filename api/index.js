@@ -69,7 +69,7 @@ app.get('/logout', async (req, res) => {
     //     req.cookies.session.userid
     // )
     res.clearCookie('sessionID')
-    res.sendStatus()
+    res.sendStatus(200)
 })
 
 startServer()
