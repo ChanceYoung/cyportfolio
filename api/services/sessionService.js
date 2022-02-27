@@ -1,11 +1,13 @@
 const { pool } = require('../configs/poolConfig.js')
-const { getUserById } = require('./userService')
 
 const addSessionInfo = async (userid, sessionid, username) => {
     console.log('adding session info...')
     try {
-        const user = await getUserById(userid)
-        if (user != null) {
+        const user = await pool.query(
+            'select * from portfolio.session_info where user_id=$1',
+            [userid]
+        )
+        if (user.rowCount > 0) {
             const res = await pool.query(
                 'update portfolio.session_info set express_session_id=$1 where user_id=$2',
                 [sessionid, userid]
