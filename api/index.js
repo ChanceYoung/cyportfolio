@@ -65,9 +65,9 @@ app.get('/secure', async (req, res) => {
 })
 
 app.get('/logout', async (req, res) => {
-    const sessionRemoved = await dbservice.session.removeSession(
-        req.cookies.session.userid
-    )
+    // const sessionRemoved = await dbservice.session.removeSession(
+    //     req.cookies.session.userid
+    // )
     res.clearCookie('sessionID')
     res.sendStatus()
 })
