@@ -7,15 +7,20 @@ export const getPosts = async () => {
     return posts.data
 }
 
-export const getPostbyId = async (id) => {
+export const getPostbyId = async id => {
     const post = await axios.get('/api/posts', { params: { post_id: id } })
 
     return post.data
 }
 
-export const onUserLogin = async (logininfo) => {
-    const loginResult = await axios.post('/api/login', { ...logininfo })
-    return loginResult.status === 200
+export const onUserLogin = async logininfo => {
+    const loginResult = await axios.post('/login', {
+        data: { token: logininfo.tokenId },
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    return loginResult.data
 }
 
 export const verifySession = async () => {
