@@ -10,7 +10,7 @@ on:
   pull_request:
     branches: [ main ]
 env:
-    REACT_APP_GOOGLE_CLIENT_ID: ${{secrets.GCID}}
+    GOOGLE_CLIENT_ID: ${{secrets.GCID}}
 jobs:
   run_api:
     name: Respin API with PM2
