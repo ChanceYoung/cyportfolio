@@ -37,7 +37,7 @@ const LoginForm = () => {
 
     return (
         <div className="mt-2">
-            {/* <h2>Chance Admin Login</h2>
+            <h2>Chance Admin Login</h2>
             <form onSubmit={onSubmitHandler}>
                 <TextInput inputControl={username} />
                 <TextInput inputControl={password} type={'password'} />
@@ -52,7 +52,7 @@ const LoginForm = () => {
                 <div className="text-danger pt-2">
                     Username or Password is incorrect
                 </div>
-            )} */}
+            )}
         </div>
     )
 }
