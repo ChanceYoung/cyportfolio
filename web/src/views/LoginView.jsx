@@ -13,7 +13,7 @@ const LoginView = () => {
         <div className="container">
             <div className="row">
                 <GoogleLogin
-                    clientId={process.env.REACT_AP_GOOGLE_CLIENT_ID}
+                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                     buttonText="Login with Google"
                     onSuccess={handleLogin}
                     onFailure={handleLogin}

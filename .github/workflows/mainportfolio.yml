@@ -29,6 +29,7 @@ jobs:
           POR_POSTGRES_HOST: ${{ secrets.PORPH }}
           POR_POSTGRES_DB: ${{ secrets.PORDB }}
           POR_POSTGRES_PASSWORD: ${{ secrets.PORPASS }}
+          REACT_APP_GOOGLE_CLIENT_ID: ${{secrets.GCID}}
         run: |
           cd /home/chance/actions-runner/main/cyportfolio/cyportfolio/api/
           pm2 delete portfolioapi          
