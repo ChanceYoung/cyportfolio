@@ -9,12 +9,13 @@ const LoginView = () => {
         const user = await onUserLogin(googleData)
         return <Navigate to={{ pathname: '/secure', state: { user: user } }} />
     }
-    console.log(process.env.REACT_APP_GOOGLE_CLIENT_ID)
+
     return (
         <div className="container">
             <div className="row">
                 <GoogleLogin
-                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                    clientId="147626009254-vrqp2mugnno9h3k3at40qulqu27unb8b.apps.googleusercontent.com
+                        D"
                     buttonText="Login with Google"
                     onSuccess={handleLogin}
                     onFailure={handleLogin}
