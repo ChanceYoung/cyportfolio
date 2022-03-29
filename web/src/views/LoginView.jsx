@@ -9,6 +9,7 @@ const LoginView = () => {
         const user = await onUserLogin(googleData)
         return <Navigate to={{ pathname: '/secure', state: { user: user } }} />
     }
+    console.log(process.env.REACT_APP_GOOGLE_CLIENT_ID)
     return (
         <div className="container">
             <div className="row">
