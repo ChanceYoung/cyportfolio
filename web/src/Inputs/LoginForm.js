@@ -36,24 +36,25 @@ const LoginForm = () => {
     }
 
     return (
-        <div className="mt-2">
-            <h2>Chance Admin Login</h2>
-            <form onSubmit={onSubmitHandler}>
-                <TextInput inputControl={username} />
-                <TextInput inputControl={password} type={'password'} />
-                <button type="submit" className="btn btn-primary">
-                    Login
-                </button>
-            </form>
-            {isSuccess && wasSubmitted && (
-                <div className="text-success pt-2">Successfully logged in!</div>
-            )}
-            {!isSuccess && wasSubmitted && (
-                <div className="text-danger pt-2">
-                    Username or Password is incorrect
-                </div>
-            )}
-        </div>
+        <></>
+        // <div className="mt-2">
+        //     <h2>Chance Admin Login</h2>
+        //     <form onSubmit={onSubmitHandler}>
+        //         <TextInput inputControl={username} />
+        //         <TextInput inputControl={password} type={'password'} />
+        //         <button type="submit" className="btn btn-primary">
+        //             Login
+        //         </button>
+        //     </form>
+        //     {isSuccess && wasSubmitted && (
+        //         <div className="text-success pt-2">Successfully logged in!</div>
+        //     )}
+        //     {!isSuccess && wasSubmitted && (
+        //         <div className="text-danger pt-2">
+        //             Username or Password is incorrect
+        //         </div>
+        //     )}
+        // </div>
     )
 }
 
