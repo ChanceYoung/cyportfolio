@@ -17,7 +17,7 @@ export const onUserLogin = async logininfo => {
     const loginResult = await axios.post(
         '/api/login',
         {
-            token: JSON.stringify(logininfo.tokenId),
+            token: logininfo.tokenId,
         },
         {
             headers: {
