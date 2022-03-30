@@ -25,36 +25,41 @@ app.get('/posts', async (req, res) => {
 })
 
 app.post('/login', async (req, res) => {
-    const { token } = req.body
-    const ticket = await client.verifyIdToken({
-        idToken: token,
-        audience: process.env.CLIENT_ID,
-    })
-    const { name, email} = ticket.getPayload()
-
-    const exists = await dbservice.user.getUserByName(name)
-
-        if (exists != null) {
-            const sessionID = v4()
-            var expires = new Date(new Date().valueOf() + thirtyMinutes)
-            const sessionResult = await dbservice.session.addSessionInfo(
-                dbresult.user_id,
-                sessionID,
-                logininfo.username
-            )
-            res.clearCookie('session')
-            res.cookie(
-                'session',
-                { sessionID },
-                {
-                    sameSite: 'strict',
-                    expires,
-                }
-            )
-            res.send(dbresult)
-        } else {
-        }
+    try {
+        const { token } = req.body
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: process.env.CLIENT_ID,
+        })
+        const { name, email } = ticket.getPayload()
+        res.sendStatus(200)
+    } catch (error) {
+        console.error(error.stack)
+        res.sendStatus(500)
     }
+
+    // const exists = await dbservice.user.getUserByName(name)
+
+    //     if (exists != null) {
+    //         const sessionID = v4()
+    //         var expires = new Date(new Date().valueOf() + thirtyMinutes)
+    //         const sessionResult = await dbservice.session.addSessionInfo(
+    //             dbresult.user_id,
+    //             sessionID,
+    //             logininfo.username
+    //         )
+    //         res.clearCookie('session')
+    //         res.cookie(
+    //             'session',
+    //             { sessionID },
+    //             {
+    //                 sameSite: 'strict',
+    //                 expires,
+    //             }
+    //         )
+    //         res.send(dbresult)
+    //     } else {
+    //     }
 })
 
 app.get('/secure', async (req, res) => {
