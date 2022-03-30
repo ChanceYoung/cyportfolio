@@ -6,6 +6,7 @@ import { Navigate } from 'react-router'
 
 const LoginView = () => {
     const handleLogin = async googleData => {
+        console.log(googleData)
         const user = await onUserLogin(googleData)
         return <Navigate to={{ pathname: '/secure', state: { user: user } }} />
     }
