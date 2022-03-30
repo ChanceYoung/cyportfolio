@@ -14,8 +14,9 @@ export const getPostbyId = async id => {
 }
 
 export const onUserLogin = async logininfo => {
+    console.log(logininfo)
     const loginResult = await axios.post('/api/login', {
-        data: { token: logininfo.tokenId },
+        data: JSON.stringify({ token: logininfo.tokenId }),
         headers: {
             'Content-Type': 'application/json',
         },
