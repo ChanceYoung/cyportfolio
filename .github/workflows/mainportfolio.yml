@@ -36,28 +36,28 @@ jobs:
           pm2 start process.yml
           pm2 save
 
-      - name: check modified files
-        id: check_files
-        run: |
-          echo "========== check paths of modified files =========="
-          git diff --name-only HEAD^ > files.txt
-          while IFS= read -r file
-          do
-            echo $file
-            if [[ $file != web/* ]]; then
-              echo "This modified file is not under the 'web' folder."
-              echo "::set-output name=run_job::false"
-              break
-            else
-              echo "::set-output name=run_job::true"
-            fi
-          done < files.txt
+      # - name: check modified files
+      #   id: check_files
+      #   run: |
+      #     echo "========== check paths of modified files =========="
+      #     git diff --name-only HEAD^ > files.txt
+      #     while IFS= read -r file
+      #     do
+      #       echo $file
+      #       if [[ $file != web/* ]]; then
+      #         echo "This modified file is not under the 'web' folder."
+      #         echo "::set-output name=run_job::false"
+      #         break
+      #       else
+      #         echo "::set-output name=run_job::true"
+      #       fi
+      #     done < files.txt
 
   push_to_registry:
     name: Push Docker image to Docker Hub
     needs:
       [run_api]
-    if: needs.run_api.outputs.run_job == 'true'
+    # if: needs.run_api.outputs.run_job == 'true'
     runs-on: [self-hosted, chancesvm]
 
     steps:

@@ -1,11 +1,10 @@
 FROM node:11-alpine AS client_builder
 WORKDIR /portfolio
 
-COPY package.json .
-COPY package-lock.json .
+COPY package*.json /portfolio/
+RUN npm install --production
 
-RUN npm install --silent
-COPY . .
+COPY ./ /portfolio/
 
 RUN npm run build
 
