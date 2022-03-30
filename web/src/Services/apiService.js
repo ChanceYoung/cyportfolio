@@ -14,7 +14,7 @@ export const getPostbyId = async id => {
 }
 
 export const onUserLogin = async logininfo => {
-    console.log(logininfo)
+    console.log('googledata' + logininfo)
     const loginResult = await axios.post('/api/login', {
         data: JSON.stringify({ token: logininfo.tokenId }),
         headers: {
