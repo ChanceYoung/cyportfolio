@@ -14,13 +14,17 @@ export const getPostbyId = async id => {
 }
 
 export const onUserLogin = async logininfo => {
-    console.log('googledata' + logininfo)
-    const loginResult = await axios.post('/api/login', {
-        data: JSON.stringify({ token: logininfo.tokenId }),
-        headers: {
-            'Content-Type': 'application/json',
+    const loginResult = await axios.post(
+        '/api/login',
+        {
+            token: JSON.stringify(logininfo.tokenId),
         },
-    })
+        {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    )
     return loginResult.data
 }
 
