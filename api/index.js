@@ -26,6 +26,7 @@ app.get('/posts', async (req, res) => {
 
 app.post('/login', async (req, res) => {
     try {
+        console.log(token)
         const { token } = req.body
         const ticket = await client.verifyIdToken({
             idToken: token,
