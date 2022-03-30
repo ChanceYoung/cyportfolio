@@ -2,14 +2,15 @@ import React from 'react'
 // import LoginForm from '../Inputs/LoginForm'
 import GoogleLogin from 'react-google-login'
 import { onUserLogin } from '../Services/apiService'
-import { Navigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 
 const LoginView = () => {
+    const navigate = useNavigate()
     const handleLogin = async googleData => {
-        console.log(googleData)
-        console.log(googleData.tokenId)
         const user = await onUserLogin(googleData)
-        return <Navigate to={{ pathname: '/secure', state: { user: user } }} />
+        if (user.status == 200) {
+            navigate('/secure', { state: user.data })
+        }
     }
 
     return (

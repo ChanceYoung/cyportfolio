@@ -25,7 +25,7 @@ export const onUserLogin = async logininfo => {
             },
         }
     )
-    return loginResult.data
+    return loginResult
 }
 
 export const verifySession = async () => {
