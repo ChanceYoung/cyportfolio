@@ -14,8 +14,7 @@ const LoginView = () => {
         <div className="container">
             <div className="row">
                 <GoogleLogin
-                    clientId="147626009254-vrqp2mugnno9h3k3at40qulqu27unb8b.apps.googleusercontent.com
-                        D"
+                    clientId="147626009254-hot641jv249asacll1am10qn61np3t0b.apps.googleusercontent.com"
                     buttonText="Login with Google"
                     onSuccess={handleLogin}
                     onFailure={handleLogin}
