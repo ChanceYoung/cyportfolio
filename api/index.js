@@ -32,7 +32,7 @@ app.post('/login', async (req, res) => {
             audience: process.env.CLIENT_ID,
         })
         const { name, email } = ticket.getPayload()
-        res.sendStatus(200)
+        res.send({ name, email })
     } catch (error) {
         console.error(error.stack)
         res.sendStatus(500)
