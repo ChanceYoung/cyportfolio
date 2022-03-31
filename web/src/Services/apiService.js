@@ -14,17 +14,12 @@ export const getPostbyId = async id => {
 }
 
 export const onUserLogin = async logininfo => {
-    const loginResult = await axios.post(
-        '/api/login',
-        {
-            token: logininfo.tokenId,
+    const loginResult = await axios.post('/api/login', {
+        headers: {
+            Authorization: `token ${logininfo.tokenId}`,
+            'Content-Type': 'application/json',
         },
-        {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }
-    )
+    })
     return loginResult
 }
 
