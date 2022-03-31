@@ -17,10 +17,8 @@ app.post(
     async (req, res, next) => {
         try {
             console.log('hit middleware')
-            console.log(req.headers)
-            const authHeader = req.headers.Authorization
-            const token = authHeader.split(' ')[1]
-            console.log(token)
+
+            const { token } = req.body
             const ticket = await client.verifyIdToken({
                 idToken: token,
                 audience: process.env.CLIENT_ID,
