@@ -10,7 +10,7 @@ const LoginView = () => {
         if (user.status == 200) {
             navigate('/secure', {
                 replace: true,
-                state: { user: user.data, token: googleData.tokenId },
+                state: { user: user.data, token: googleData.accessToken },
             })
         }
     }
