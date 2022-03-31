@@ -72,7 +72,7 @@ app.get(
 
 app.get('/logout', async (req, res) => {
     console.log(req.headers)
-    const authHeader = req.headers.Authorization
+    const authHeader = req.headers.authorization
     const token = authHeader.split(' ')[1]
     client.revokeToken(token)
     res.sendStatus(200)
