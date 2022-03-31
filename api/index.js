@@ -5,6 +5,7 @@ const client = new OAuth2Client(process.env.CLIENT_ID)
 
 const securityMiddleware = async (req, res, next) => {
     try {
+        console.log('hit middleware')
         const { token } = req.body
         const ticket = await client.verifyIdToken({
             idToken: token,
@@ -26,7 +27,7 @@ app.get('/posts', async (req, res) => {
     res.send(JSON.stringify(results))
 })
 
-app.post('/login', securityMiddleware(req, res, next), async (req, res) => {
+app.post('/login', securityMiddleware, async (req, res) => {
     try {
         const { name, email } = res.locals.ticket.getPayload()
         res.send({ name, email })
@@ -59,7 +60,7 @@ app.post('/login', securityMiddleware(req, res, next), async (req, res) => {
     //     }
 })
 
-app.get('/secure', securityMiddleware(req, res, next), async (req, res) => {
+app.get('/secure', securityMiddleware, async (req, res) => {
     const id = req.cookies.session
     const result = await dbservice.user.getUserBySessionId(id)
     if (result === null) res.sendStatus(500)
