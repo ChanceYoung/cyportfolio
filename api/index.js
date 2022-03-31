@@ -6,6 +6,7 @@ const client = new OAuth2Client(process.env.CLIENT_ID)
 const securityMiddleware = async (req, res, next) => {
     try {
         console.log('hit middleware')
+        console.log(req)
         const authHeader = req.headers.Authorization
         const token = authHeader.split(' ')[1]
         console.log(token)
