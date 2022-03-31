@@ -11,6 +11,7 @@ app.use('/secure', async (req, res, next) => {
             audience: process.env.CLIENT_ID,
         })
         res.locals.ticket = ticket
+        next()
     } catch (err) {
         res.sendStatus(401)
     }
@@ -23,6 +24,7 @@ app.use('/login', async (req, res, next) => {
             audience: process.env.CLIENT_ID,
         })
         res.locals.ticket = ticket
+        next()
     } catch (err) {
         res.sendStatus(401)
     }
