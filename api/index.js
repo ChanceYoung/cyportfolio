@@ -19,6 +19,7 @@ app.post(
             console.log('hit middleware')
 
             const { token } = req.body
+
             const ticket = await client.verifyIdToken({
                 idToken: token,
                 audience: process.env.CLIENT_ID,

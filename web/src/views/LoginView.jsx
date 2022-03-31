@@ -24,8 +24,6 @@ const LoginView = () => {
                     onSuccess={handleLogin}
                     onFailure={handleLogin}
                     cookiePolicy={'single_host_origin'}
-                    accessType="offline"
-                    responseType="code"
                 />
             </div>
         </div>
