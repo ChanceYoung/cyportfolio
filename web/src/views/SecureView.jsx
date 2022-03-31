@@ -1,14 +1,12 @@
 import { verifySession, logoutUser } from '../Services/apiService'
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router'
 
 const SecureView = () => {
+    const { state } = useLocation()
     const [verifiedResult, setverifiedResult] = useState(null)
     useEffect(() => {
-        async function verifySessionAsync() {
-            const results = await verifySession()
-            setverifiedResult(results.username)
-        }
-        verifySessionAsync()
+        console.log(state)
     }, [])
 
     const logoutHandler = async () => {

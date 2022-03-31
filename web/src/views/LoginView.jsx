@@ -9,7 +9,7 @@ const LoginView = () => {
     const handleLogin = async googleData => {
         const user = await onUserLogin(googleData)
         if (user.status == 200) {
-            navigate('/secure', { state: user.data })
+            navigate('/secure', { replace: true, state: user.data })
         }
     }
 
