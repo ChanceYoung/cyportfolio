@@ -3,7 +3,7 @@ const { app, startServer } = require('./configs/appConfig')
 const { OAuth2Client } = require('google-auth-library')
 const client = new OAuth2Client(process.env.CLIENT_ID)
 
-const securityMiddleware = async (req, res, next) => {
+async function securityMiddleware(req, res, next) {
     try {
         console.log('hit middleware')
         console.log(req)

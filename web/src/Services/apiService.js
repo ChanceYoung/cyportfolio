@@ -31,7 +31,10 @@ export const verifySession = async () => {
     else return null
 }
 
-export const logoutUser = async () => {
-    const result = await axios.get('/api/logout')
+export const logoutUser = async token => {
+    const result = await axios.get('https://oauth2.googleapis.com/revoke', {
+        token,
+    })
+
     return result.status === 200
 }
