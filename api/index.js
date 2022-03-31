@@ -7,6 +7,7 @@ const securityMiddleware = async (req, res, next) => {
     try {
         console.log('hit middleware')
         const { token } = req.body
+        console.log(token)
         const ticket = await client.verifyIdToken({
             idToken: token,
             audience: process.env.CLIENT_ID,
@@ -14,6 +15,7 @@ const securityMiddleware = async (req, res, next) => {
         res.locals.ticket = ticket
         next()
     } catch (err) {
+        console.error(err.stack)
         res.sendStatus(401)
     }
 }
