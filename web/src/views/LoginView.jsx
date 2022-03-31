@@ -1,5 +1,4 @@
 import React from 'react'
-// import LoginForm from '../Inputs/LoginForm'
 import GoogleLogin from 'react-google-login'
 import { onUserLogin } from '../Services/apiService'
 import { useNavigate } from 'react-router-dom'
@@ -9,7 +8,10 @@ const LoginView = () => {
     const handleLogin = async googleData => {
         const user = await onUserLogin(googleData)
         if (user.status == 200) {
-            navigate('/secure', { replace: true, state: user.data })
+            navigate('/secure', {
+                replace: true,
+                state: { user: user.data, token: googleData.idToken },
+            })
         }
     }
 
@@ -22,8 +24,9 @@ const LoginView = () => {
                     onSuccess={handleLogin}
                     onFailure={handleLogin}
                     cookiePolicy={'single_host_origin'}
+                    accessType="offline"
+                    responseType="code"
                 />
-                {/* <LoginForm /> */}
             </div>
         </div>
     )

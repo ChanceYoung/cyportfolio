@@ -1,18 +1,31 @@
-const bcrypt = require('bcrypt')
 const dbservice = require('./services/dbservice')
-const { v4 } = require('uuid')
 const { app, startServer } = require('./configs/appConfig')
-const thirtyMinutes = 1000 * 60 * 30
 const { OAuth2Client } = require('google-auth-library')
 const client = new OAuth2Client(process.env.CLIENT_ID)
 
 app.use('/secure', async (req, res, next) => {
-    console.log('Hit /secure middleware')
-    const verificationResult = await dbservice.session.checkSession(
-        req.cookies.session
-    )
-    if (verificationResult != false) next()
-    else res.sendStatus(403)
+    try {
+        const { token } = req.body
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: process.env.CLIENT_ID,
+        })
+        res.locals.ticket = ticket
+    } catch (err) {
+        res.sendStatus(401)
+    }
+})
+app.use('/login', async (req, res, next) => {
+    try {
+        const { token } = req.body
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: process.env.CLIENT_ID,
+        })
+        res.locals.ticket = ticket
+    } catch (err) {
+        res.sendStatus(401)
+    }
 })
 
 app.get('/', (req, res) => {
@@ -26,12 +39,7 @@ app.get('/posts', async (req, res) => {
 
 app.post('/login', async (req, res) => {
     try {
-        const { token } = req.body
-        const ticket = await client.verifyIdToken({
-            idToken: token,
-            audience: process.env.CLIENT_ID,
-        })
-        const { name, email } = ticket.getPayload()
+        const { name, email } = res.locals.ticket.getPayload()
         res.send({ name, email })
     } catch (error) {
         console.error(error.stack)
