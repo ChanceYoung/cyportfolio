@@ -8,7 +8,6 @@ const SecureView = () => {
     const [userInfo, setUserInfo] = useState(null)
     const [token, setToken] = useState('')
     useEffect(() => {
-        console.log(state)
         setUserInfo(state.user)
         setToken(state.token)
     }, [])
@@ -17,6 +16,7 @@ const SecureView = () => {
         const logoutResult = await logoutUser(token)
         if (logoutResult) {
             setUserInfo(null)
+            setToken('')
         }
     }
 

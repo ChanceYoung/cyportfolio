@@ -39,29 +39,6 @@ app.post(
             console.error(error.stack)
             res.sendStatus(500)
         }
-
-        // const exists = await dbservice.user.getUserByName(name)
-
-        //     if (exists != null) {
-        //         const sessionID = v4()
-        //         var expires = new Date(new Date().valueOf() + thirtyMinutes)
-        //         const sessionResult = await dbservice.session.addSessionInfo(
-        //             dbresult.user_id,
-        //             sessionID,
-        //             logininfo.username
-        //         )
-        //         res.clearCookie('session')
-        //         res.cookie(
-        //             'session',
-        //             { sessionID },
-        //             {
-        //                 sameSite: 'strict',
-        //                 expires,
-        //             }
-        //         )
-        //         res.send(dbresult)
-        //     } else {
-        //     }
     }
 )
 
@@ -94,10 +71,9 @@ app.get(
 )
 
 app.get('/logout', async (req, res) => {
-    // const sessionRemoved = await dbservice.session.removeSession(
-    //     req.cookies.session.userid
-    // )
-    res.clearCookie('session')
+    const authHeader = req.headers.Authorization
+    const token = authHeader.split(' ')[1]
+    client.revokeToken(token)
     res.sendStatus(200)
 })
 

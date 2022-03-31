@@ -35,8 +35,13 @@ export const verifySession = async () => {
 }
 
 export const logoutUser = async token => {
-    const result = await axios.get('https://oauth2.googleapis.com/revoke', {
-        token,
+    const noSpecials = new RegExp('^[a-zA-Z0-9 ]*')
+    if (!noSpecials.test(token)) return false
+
+    const result = await axios.get('/api/logout', {
+        headers: {
+            Authorization: `token ${token}`,
+        },
     })
 
     return result.status === 200
