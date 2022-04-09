@@ -8,7 +8,7 @@ import ProtectedRoute from './Components/Auth/protectedroute'
 
 function App() {
     return (
-        <>
+        <div className="App">
             <Navbar />
             <Routes>
                 <Route exact path="/" element={<MainView />} />
@@ -19,7 +19,7 @@ function App() {
                     element={<ProtectedRoute component={ProfileView} />}
                 ></Route>
             </Routes>
-        </>
+        </div>
     )
 }
 
