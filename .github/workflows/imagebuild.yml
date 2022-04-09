@@ -33,3 +33,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            DOMAIN=${{secrets.AUTH0DOMAIN}}
+            CLIENT_ID=${{secrets.AUTH0CID}}
+            AUDIENCE= ${{secrets.AUTH0AUD}}

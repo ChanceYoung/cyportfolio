@@ -5,6 +5,12 @@ COPY package*.json /portfolio/
 RUN npm install --production
 
 COPY ./ /portfolio/
+ARG DOMAIN
+ARG CLIENT_ID
+ARG AUDIENCE
+ENV REACT_APP_AUTH0_CLIENT_ID=${CLIENT_ID}
+ENV REACT_APP_AUTH0_DOMAIN=${DOMAIN}
+ENV REACT_APP_AUTH0_AUDIENCE=${AUDIENCE}
 
 RUN npm run build
 

@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import AuthenticationButton from './Auth/buttons/full-button'
 
 const Navbar = () => {
     return (
@@ -30,6 +31,9 @@ const Navbar = () => {
                             <NavLink className="nav-link" to="/aboutme">
                                 About Me
                             </NavLink>
+                        </li>
+                        <li>
+                            <AuthenticationButton />
                         </li>
                     </ul>
                 </div>

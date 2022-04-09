@@ -15,12 +15,12 @@ const getUserPasswd = async username => {
     }
 }
 
-const getUserByName = async userid => {
+const getUserByName = async username => {
     console.log('getting user by name')
     try {
         const res = await pool.query(
             'Select username from portfolio.session_user where username = $1;',
-            [userid]
+            [username]
         )
         if (res.rowCount > 0) {
             return res.rows[0]

@@ -5,4 +5,4 @@ apps:
     max_restarts: 5
     env:
       PORT: 3501
-      CLIENT_ID: "147626009254-hot641jv249asacll1am10qn61np3t0b.apps.googleusercontent.com"
+      CLIENT_ID: CLIENT_ID

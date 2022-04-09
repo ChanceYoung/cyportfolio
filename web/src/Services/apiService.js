@@ -13,36 +13,13 @@ export const getPostbyId = async id => {
     return post.data
 }
 
-export const onUserLogin = async logininfo => {
-    const loginResult = await axios.post(
-        '/api/login',
-        { token: logininfo.tokenId },
-        {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }
-    )
-    return loginResult
-}
-
-export const verifySession = async () => {
-    const verifiedResult = await axios.get('/api/secure', {
-        withCredentials: true,
-    })
-    if (verifiedResult.status === 200) return verifiedResult.data
-    else return null
-}
-
-export const logoutUser = async token => {
-    const noSpecials = new RegExp('^[a-zA-Z0-9 ]*')
-    if (!noSpecials.test(token)) return false
-
-    const result = await axios.get('/api/logout', {
+export const getProfileInfo = async (name, token) => {
+    const response = await axios.get(`/api/profile`, {
         headers: {
-            Authorization: `token ${token}`,
+            Authorization: `Bearer ${token}`,
         },
+        params: { user: name },
     })
-
-    return result.status === 200
+    if (response.status != 200) return null
+    else return response.data
 }
