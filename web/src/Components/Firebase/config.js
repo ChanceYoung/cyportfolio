@@ -1,8 +1,8 @@
 // Import the functions you need from the SDKs you need
 
-import * as firebase from 'firebase/app'
-import 'firebase/storage'
-import 'firebase/firestore'
+import { initializeApp } from 'firebase/app'
+import { getStorage } from 'firebase/storage'
+import { getFirestore, serverTimestamp } from 'firebase/firestore'
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FBKEY,
@@ -20,7 +20,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 
-firebase.initializeApp(firebaseConfig)
-export const projectStorage = firebase.storage()
-export const projectFirestore = firebase.firestore()
-export const timestamp = firebase.firestore.FieldValue.serverTimestamp
+const app = initializeApp(firebaseConfig)
+export const projectStorage = getStorage(app)
+export const projectFirestore = getFirestore(app)
+export const timestamp = serverTimestamp
