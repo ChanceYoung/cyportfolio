@@ -2,7 +2,10 @@ const dbservice = require('./services/dbservice')
 const { app, startServer } = require('./configs/appConfig')
 const { auth } = require('express-oauth2-jwt-bearer')
 
-checkJWT = auth()
+const checkJWT = auth({
+    audience: 'undefined',
+    issuerBaseURL: process.env.ISSUER_BASE_URL,
+})
 
 app.get('/', (req, res) => {
     res.send('hit the cyportfolio api')
