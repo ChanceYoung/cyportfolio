@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { getProfileInfo } from '../Services/apiService'
-import UploadForm from '../Components/UploadForm.js'
+import UploadForm from '../Inputs/UploadForm'
 import ProfilePic from '../Components/ProfilePic.js'
 
 const ProfileView = () => {
