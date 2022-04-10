@@ -37,3 +37,4 @@ jobs:
             DOMAIN=${{secrets.AUTH0DOMAIN}}
             CLIENT_ID=${{secrets.AUTH0CID}}
             AUDIENCE= ${{secrets.AUTH0AUD}}
+            FBKEY= ${{secrets.FBKEY}}

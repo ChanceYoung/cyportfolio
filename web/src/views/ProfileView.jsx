@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { getProfileInfo } from '../Services/apiService'
+import uploadForm from '../Components/uploadForm'
+import ProfilePic from '../Components/ProfilePic'
 
 const ProfileView = () => {
     const [userInfo, setUserInfo] = useState(null)
@@ -18,9 +20,11 @@ const ProfileView = () => {
         setUserInfo(auth.user)
     }, [])
 
-    return auth.isAuthenticated ? (
+    return auth.isAuthenticated && userInfo ? (
         <div className="container">
             <div>Welcome, {userInfo.name}</div>
+            <uploadForm user={userInfo.name} />
+            <ProfilePic />
         </div>
     ) : (
         <></>
