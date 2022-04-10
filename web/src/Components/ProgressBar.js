@@ -1,4 +1,4 @@
-import { useStorage } from '../hooks/useStorage'
+import useStorage from '../hooks/useStorage'
 import React, { useEffect } from 'react'
 import Loading from './Loading'
 

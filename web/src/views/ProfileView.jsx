@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { getProfileInfo } from '../Services/apiService'
-import uploadForm from '../Components/uploadForm'
+import UploadForm from '../Components/UploadForm'
 import ProfilePic from '../Components/ProfilePic'
 
 const ProfileView = () => {
@@ -23,7 +23,7 @@ const ProfileView = () => {
     return auth.isAuthenticated && userInfo ? (
         <div className="container">
             <div>Welcome, {userInfo.name}</div>
-            <uploadForm user={userInfo.name} />
+            <UploadForm user={userInfo.name} />
             <ProfilePic />
         </div>
     ) : (
