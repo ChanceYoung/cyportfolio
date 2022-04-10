@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { getProfileInfo } from '../Services/apiService'
-import UploadForm from '../Components/UploadForm'
-import ProfilePic from '../Components/ProfilePic'
+import UploadForm from '../Components/UploadForm.js'
+import ProfilePic from '../Components/ProfilePic.js'
 
 const ProfileView = () => {
     const [userInfo, setUserInfo] = useState(null)
