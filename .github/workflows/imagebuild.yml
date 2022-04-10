@@ -36,5 +36,5 @@ jobs:
           build-args: |
             DOMAIN=${{secrets.AUTH0DOMAIN}}
             CLIENT_ID=${{secrets.AUTH0CID}}
-            AUDIENCE= ${{secrets.AUTH0AUD}}
-            FBKEY= ${{secrets.FBKEY}}
+            AUDIENCE=${{secrets.AUTH0AUD}}
+            FBKEY=${{secrets.FBKEY}}
