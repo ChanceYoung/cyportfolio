@@ -27,7 +27,7 @@ const ProfilePicture = ({ key }) => {
         <>
             {typeof image != 'undefined' && (
                 <img
-                    src={`https://chanceyoung.dev/api/upload/${imagekey}`}
+                    src={`https://chanceyoung.dev/api/secure/upload/${imagekey}`}
                     alt="profile picture"
                 />
             )}

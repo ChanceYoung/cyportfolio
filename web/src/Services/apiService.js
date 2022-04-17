@@ -14,7 +14,7 @@ export const getPostbyId = async id => {
 }
 
 export const getProfileInfo = async (name, token) => {
-    const response = await axios.get(`/api/profile`, {
+    const response = await axios.get(`/api/secure/profile`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
