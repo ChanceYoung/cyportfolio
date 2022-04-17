@@ -16,6 +16,8 @@ router.use(
 router.use('/upload', express.static('../assets'))
 
 router.post('/upload', upload, (req, res) => {
+    const filename = 'image/' + req.file.filename
+    res.send({ filename })
     //update users profile picture in the database
     //send the uploaded file back with a 200 response
 })

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { getProfileInfo } from '../Services/apiService'
+import ProfilePicture from '../Components/ProfilePicture'
 
 const ProfileView = () => {
     const [userInfo, setUserInfo] = useState(null)
@@ -23,6 +24,7 @@ const ProfileView = () => {
         </div>
     ) : (
         <div className="container">
+            <ProfilePicture key={userInfo.imageKey} />
             <div>Welcome, {userInfo.name}</div>
         </div>
     )
