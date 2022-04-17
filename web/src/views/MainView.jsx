@@ -14,20 +14,7 @@ const MainView = () => {
             setPosts(posts)
         }
         getPostsAsync()
-        // typeWriter()
     }, [])
-
-    // var i = 0
-    // var txt = 'Chance Young Web Development' /* The text */
-    // var speed = 50 /* The speed/duration of the effect in milliseconds */
-
-    // function typeWriter() {
-    //     if (i < txt.length) {
-    //         typing.current.innerHTML += txt.charAt(i)
-    //         i++
-    //         setTimeout(typeWriter, speed)
-    //     }
-    // }
 
     return (
         <div className="container">
@@ -37,9 +24,6 @@ const MainView = () => {
             <div className="row justify-content-center">
                 <SummaryList listofposts={posts} />
             </div>
-            {/* <div className="row justify-content-center">
-                <ContactForm />
-            </div> */}
         </div>
     )
 }

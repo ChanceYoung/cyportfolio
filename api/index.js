@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const dbservice = require('./services/dbservice')
 const { app, startServer } = require('./configs/appConfig')
 const { auth } = require('express-oauth2-jwt-bearer')
@@ -22,5 +23,8 @@ app.get('/profile', checkJWT, async (req, res) => {
     if (result === null) res.sendStatus(500)
     else res.send(result)
 })
+=======
+import startServer from './configs/appConfig.js'
+>>>>>>> simplephotos
 
 startServer()

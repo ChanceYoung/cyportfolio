@@ -1,10 +1,12 @@
-const { pool } = require('../configs/poolConfig.js')
-const getPosts = async () => {
+import pool from '../configs/poolConfig.js'
+import { postQueries } from '../configs/queries.js'
+const getAllPosts = async () => {
     try {
-        const res = await pool.query('Select * from portfolio.post;')
+        const res = await pool.query(postQueries.selectAll)
         return res.rows
     } catch (err) {
         return err.stack
     }
 }
-module.exports = { getPosts }
+const postService = { getAllPosts }
+export default postService

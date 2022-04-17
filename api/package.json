@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "DEV=true node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "express": "^4.17.1",
     "express-oauth2-jwt-bearer": "^1.1.0",
     "express-session": "^1.17.2",
+    "multer": "^1.4.4",
     "nodemailer": "^6.7.1",
     "openid-client": "^5.1.4",
     "pg": "^8.7.1",
