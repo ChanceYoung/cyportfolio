@@ -22,9 +22,6 @@ const upload = multer({
         }
         callback(null, true)
     },
-    limits: {
-        fileSize: 4 * 1024 * 1024,
-    },
 }).single('image')
 
 export default upload
