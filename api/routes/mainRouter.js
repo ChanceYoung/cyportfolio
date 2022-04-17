@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/posts', async (req, res) => {
+    console.log('getting all posts...')
     const results = await postService.getAllPosts()
     res.send(JSON.stringify(results))
 })
