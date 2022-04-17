@@ -8,6 +8,7 @@ dotenv.config()
 const router = new Router()
 
 router.use(
+    '/profile',
     auth({
         issuerBaseURL: process.env.ISSUER_BASE_URL,
         audience: process.env.AUDIENCE,
