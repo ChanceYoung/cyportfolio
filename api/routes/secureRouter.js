@@ -6,12 +6,13 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const router = new Router()
+console.log(process.env.ISSUER_BASE_URL)
 
 router.use(
     '/profile',
     auth({
         issuerBaseURL: process.env.ISSUER_BASE_URL,
-        audience: process.env.AUDIENCE,
+        audience: 'https://chanceyoung.dev',
     })
 )
 router.use('/upload', express.static('../assets'))

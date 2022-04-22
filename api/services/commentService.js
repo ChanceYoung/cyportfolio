@@ -1,5 +1,5 @@
 import pool from '../configs/poolConfig'
-import CommentBuilder from '../models/builders/commentBuiler'
+import CommentBuilder from '../models/builders/commentBuilder.js'
 
 const makeComment = async commentInfo => {
     commentInfo = new CommentBuilder()
