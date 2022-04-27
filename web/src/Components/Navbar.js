@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import AuthenticationButton from './Auth/buttons/full-button'
+import TypeWriterEffect from 'react-typewriter-effect'
 
 const Navbar = () => {
     return (
@@ -37,9 +38,14 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
-                <h1 className="line-1 anim-typewriter p-1">
-                    Chance Young Web Development
-                </h1>
+                <TypeWriterEffect
+                    cursorColor="white"
+                    startDelay={40}
+                    multiText={['Welcome!', 'Chance Young Web Development']}
+                    multiTextDelay={200}
+                    typeSpeed={100}
+                    hideCursorAfterText={true}
+                />
             </div>
         </nav>
     )
