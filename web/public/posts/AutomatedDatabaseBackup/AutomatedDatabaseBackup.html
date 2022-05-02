@@ -1,0 +1,605 @@
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+        <style type="text/css">
+            ol {
+                margin: 0;
+                padding: 0;
+            }
+            table td,
+            table th {
+                padding: 0;
+            }
+            .c0 {
+                border-right-style: solid;
+                padding: 5pt 5pt 5pt 5pt;
+                border-bottom-color: #000000;
+                border-top-width: 0pt;
+                border-right-width: 0pt;
+                border-left-color: #000000;
+                vertical-align: top;
+                border-right-color: #000000;
+                border-left-width: 0pt;
+                border-top-style: solid;
+                border-left-style: solid;
+                border-bottom-width: 0pt;
+                width: 468pt;
+                border-top-color: #000000;
+                border-bottom-style: solid;
+            }
+            .c11 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 18pt;
+                font-family: 'Arial';
+                font-style: normal;
+            }
+            .c1 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 12pt;
+                font-family: 'Arial';
+                font-style: normal;
+            }
+            .c12 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 11pt;
+                font-family: 'Arial';
+                font-style: normal;
+            }
+            .c6 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.15;
+                orphans: 2;
+                widows: 2;
+                text-align: center;
+            }
+            .c2 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.15;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            .c3 {
+                border-spacing: 0;
+                border-collapse: collapse;
+                margin-right: auto;
+            }
+            .c10 {
+                background-color: #ffffff;
+                max-width: 468pt;
+                padding: 72pt 72pt 72pt 72pt;
+            }
+            .c4 {
+                height: 11pt;
+            }
+            .c5 {
+                text-indent: 36pt;
+            }
+            .c8 {
+                height: 0pt;
+            }
+            .c9 {
+                font-style: italic;
+            }
+            .c7 {
+                font-size: 12pt;
+            }
+            .title {
+                padding-top: 0pt;
+                color: #000000;
+                font-size: 26pt;
+                padding-bottom: 3pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            .subtitle {
+                padding-top: 0pt;
+                color: #666666;
+                font-size: 15pt;
+                padding-bottom: 16pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            li {
+                color: #000000;
+                font-size: 11pt;
+                font-family: 'Arial';
+            }
+            p {
+                margin: 0;
+                color: #000000;
+                font-size: 11pt;
+                font-family: 'Arial';
+            }
+            h1 {
+                padding-top: 20pt;
+                color: #000000;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            h2 {
+                padding-top: 18pt;
+                color: #000000;
+                font-size: 16pt;
+                padding-bottom: 6pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            h3 {
+                padding-top: 16pt;
+                color: #434343;
+                font-size: 14pt;
+                padding-bottom: 4pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            h4 {
+                padding-top: 14pt;
+                color: #666666;
+                font-size: 12pt;
+                padding-bottom: 4pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            h5 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            h6 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                font-style: italic;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body class="c10">
+        <p class="c6">
+            <span class="c11"
+                >Creating Automated Database Backups using Github Actions</span
+            >
+        </p>
+        <p class="c2 c4"><span class="c12"></span></p>
+        <p class="c2 c5">
+            <span class="c7"
+                >I ran into the need to backup the data and structure of my
+                database. My current architecture uses docker-compose with a
+                postgres container as the database. It is set up so that there
+                exists two schemas, </span
+            ><span class="c9 c7">portfolio</span
+            ><span class="c7">&nbsp;and </span
+            ><span class="c7 c9">wg_admin</span
+            ><span class="c1"
+                >&nbsp;which contain information for both my portfolio blog
+                posts and my wireguard vpn client user information.</span
+            >
+        </p>
+        <p class="c2 c4 c5"><span class="c1"></span></p>
+        <p class="c2 c5">
+            <span class="c1"
+                >&nbsp;In changing the architecture for my portfolio to play
+                nicer with my other docker compose elements, such as my swag
+                container which acts as a front proxy to only allow Https
+                traffic. The details of my architecture will be covered in a
+                separate post. For now, we will focus on how we can get the
+                database back from a backup when we have to tear it down.
+            </span>
+        </p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2">
+            <span class="c1"
+                >This is the workflow.yml file for my database backup:</span
+            >
+        </p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.0"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c8">
+                    <td class="c0" colspan="1" rowspan="1">
+                        <p class="c6">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 610px;
+                                    height: 453.33px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/AutomatedDatabaseBackup/images/image8.png"
+                                    style="
+                                        width: 610px;
+                                        height: 453.33px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2">
+            <span class="c1"
+                >This will create a dump, then it will pull the backup onto our
+                backup machine, and remove any backups that are a week old.
+                Lastly, it will remove any dumps that exist on the main virtual
+                machine. This will run as a cron operation every 2 days</span
+            >
+        </p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2">
+            <span class="c1">Here is a log of it running successfully:</span>
+        </p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.1"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c8">
+                    <td class="c0" colspan="1" rowspan="1">
+                        <p class="c6">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 610px;
+                                    height: 113.33px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/AutomatedDatabaseBackup/images/image4.png"
+                                    style="
+                                        width: 610px;
+                                        height: 113.33px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2">
+            <span class="c1"
+                >This is some of the backups that were created with this
+                workflow:</span
+            >
+        </p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.2"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c8">
+                    <td class="c0" colspan="1" rowspan="1">
+                        <p class="c6">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 610px;
+                                    height: 29.33px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/AutomatedDatabaseBackup/images/image2.png"
+                                    style="
+                                        width: 610px;
+                                        height: 29.33px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2">
+            <span class="c1"
+                >For the restoration, here is the workflow file:</span
+            >
+        </p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.3"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c8">
+                    <td class="c0" colspan="1" rowspan="1">
+                        <p class="c6">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 610px;
+                                    height: 261.33px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/AutomatedDatabaseBackup/images/image1.png"
+                                    style="
+                                        width: 610px;
+                                        height: 261.33px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2">
+            <span class="c1"
+                >Notice the on workflow_dispatch which allows us to specify when
+                we want to run the restore and accepts the date as an argument.
+                So if we take the dump from 11-02-2022_22_13_20 after creating
+                some new data:</span
+            >
+        </p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.4"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c8">
+                    <td class="c0" colspan="1" rowspan="1">
+                        <p class="c6">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 610px;
+                                    height: 377.33px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/AutomatedDatabaseBackup/images/image6.png"
+                                    style="
+                                        width: 610px;
+                                        height: 377.33px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2">
+            <span class="c1"
+                >Okay, so that is there, let&#39;s roll it back:</span
+            >
+        </p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.5"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c8">
+                    <td class="c0" colspan="1" rowspan="1">
+                        <p class="c6">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 610px;
+                                    height: 190.67px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/AutomatedDatabaseBackup/images/image3.png"
+                                    style="
+                                        width: 610px;
+                                        height: 190.67px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2"><span class="c1">It looks like it ran:</span></p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.6"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c8">
+                    <td class="c0" colspan="1" rowspan="1">
+                        <p class="c6">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 610px;
+                                    height: 134.67px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/AutomatedDatabaseBackup/images/image5.png"
+                                    style="
+                                        width: 610px;
+                                        height: 134.67px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <p class="c2"><span class="c1">Let&#39;s check!</span></p>
+        <p class="c2 c4"><span class="c1"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.7"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c8">
+                    <td class="c0" colspan="1" rowspan="1">
+                        <p class="c6">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 486px;
+                                    height: 217px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/AutomatedDatabaseBackup/images/image7.png"
+                                    style="
+                                        width: 486px;
+                                        height: 217px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c2">
+            <span class="c1"
+                >And there we have it, we have successfully backed up and
+                restored our database.
+            </span>
+        </p>
+    </body>
+</html>

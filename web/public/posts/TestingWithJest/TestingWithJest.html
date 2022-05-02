@@ -1,0 +1,910 @@
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+        <style type="text/css">
+            ol {
+                margin: 0;
+                padding: 0;
+            }
+            table td,
+            table th {
+                padding: 0;
+            }
+            .c7 {
+                border-right-style: solid;
+                padding: 5pt 5pt 5pt 5pt;
+                border-bottom-color: #000000;
+                border-top-width: 0pt;
+                border-right-width: 0pt;
+                border-left-color: #000000;
+                vertical-align: top;
+                border-right-color: #000000;
+                border-left-width: 0pt;
+                border-top-style: solid;
+                border-left-style: solid;
+                border-bottom-width: 0pt;
+                width: 468pt;
+                border-top-color: #000000;
+                border-bottom-style: solid;
+            }
+            .c1 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.15;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+                height: 11pt;
+            }
+            .c4 {
+                color: #000000;
+                font-weight: 700;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 13pt;
+                font-family: 'Arial';
+                font-style: normal;
+            }
+            .c0 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 11pt;
+                font-family: 'Arial';
+                font-style: normal;
+            }
+            .c5 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.15;
+                orphans: 2;
+                widows: 2;
+                text-align: center;
+            }
+            .c2 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.15;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            .c3 {
+                border-spacing: 0;
+                border-collapse: collapse;
+                margin-right: auto;
+            }
+            .c8 {
+                background-color: #ffffff;
+                max-width: 468pt;
+                padding: 72pt 72pt 72pt 72pt;
+            }
+            .c9 {
+                text-indent: 36pt;
+            }
+            .c6 {
+                height: 0pt;
+            }
+            .title {
+                padding-top: 0pt;
+                color: #000000;
+                font-size: 26pt;
+                padding-bottom: 3pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            .subtitle {
+                padding-top: 0pt;
+                color: #666666;
+                font-size: 15pt;
+                padding-bottom: 16pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            li {
+                color: #000000;
+                font-size: 11pt;
+                font-family: 'Arial';
+            }
+            p {
+                margin: 0;
+                color: #000000;
+                font-size: 11pt;
+                font-family: 'Arial';
+            }
+            h1 {
+                padding-top: 20pt;
+                color: #000000;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            h2 {
+                padding-top: 18pt;
+                color: #000000;
+                font-size: 16pt;
+                padding-bottom: 6pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            h3 {
+                padding-top: 16pt;
+                color: #434343;
+                font-size: 14pt;
+                padding-bottom: 4pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            h4 {
+                padding-top: 14pt;
+                color: #666666;
+                font-size: 12pt;
+                padding-bottom: 4pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            h5 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+            h6 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Arial';
+                line-height: 1.15;
+                page-break-after: avoid;
+                font-style: italic;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body class="c8">
+        <div>
+            <p class="c1"><span class="c0"></span></p>
+        </div>
+        <p class="c5">
+            <span class="c4">Testing Javascript using Mocha and Chai </span>
+        </p>
+        <p class="c2"><span class="c0">The Goal</span></p>
+        <p class="c2">
+            <span class="c0"
+                >I have a couple of functions that I want to test in Javascript.
+                In order to do this, I prefer to use a couple different
+                libraries. These libraries are Mocha and Chai. These two
+                libraries work really well together, and will provide us with a
+                good way to unit test some javascript functionality.
+            </span>
+        </p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2"><span class="c0">Installation</span></p>
+        <p class="c2">
+            <span class="c0"
+                >First things first, we will install these libraries:</span
+            >
+        </p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.0"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c5 c9">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 475px;
+                                    height: 189px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image13.png"
+                                    style="
+                                        width: 475px;
+                                        height: 189px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1 c9"><span class="c0"></span></p>
+        <p class="c2">
+            <span class="c0"
+                >Now that we have done that, &nbsp;I have set up two files. The
+                ones we want to test, and a test folder with a sum.test.js file,
+                which will be the first test that we do. Ultimately, I want to
+                use a Behavior/Test Driven Development approach to creating an
+                ROT-13 encoder and decoder. This is going to start with testing
+                a sum function, just to ensure our testing framework is working
+                correctly. So, we will set our type to &lsquo;module&rsquo; in
+                package.json and head to our sum.test.js file.
+            </span>
+        </p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.1"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c5">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 495px;
+                                    height: 225px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image8.png"
+                                    style="
+                                        width: 495px;
+                                        height: 225px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2">
+            <span class="c0"
+                >We have to import two pieces so we can perform these tests.
+            </span>
+        </p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.2"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c5">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 372px;
+                                    height: 56px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image2.png"
+                                    style="
+                                        width: 372px;
+                                        height: 56px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2">
+            <span class="c0"
+                >These imports allow us to test the sum function by describing
+                it in the following way:</span
+            >
+        </p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.3"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c5">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 399px;
+                                    height: 152px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image3.png"
+                                    style="
+                                        width: 399px;
+                                        height: 152px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2">
+            <span class="c0"
+                >Now, we are expecting this test to fail, because the sum of 5
+                and 5 should not equal 9. In order to run our test, we just need
+                to make sure we are in the test directory and run npm
+                test.</span
+            >
+        </p>
+        <p class="c2"><span class="c0">When we run it we see this:</span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.4"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c5">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 437px;
+                                    height: 453px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image9.png"
+                                    style="
+                                        width: 437px;
+                                        height: 453px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2">
+            <span class="c0"
+                >This is exactly what we expect. Let&#39;s make it pass, then we
+                can write our encoder and decoder:</span
+            >
+        </p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.5"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c5">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 344px;
+                                    height: 272px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image1.png"
+                                    style="
+                                        width: 344px;
+                                        height: 272px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2">
+            <span class="c0"
+                >Now we know that we have set up our test properly, we can start
+                writing a test for a ROT13 encoder. First, we will make the file
+                and import it into our test file.</span
+            >
+        </p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.6"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c5">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 431px;
+                                    height: 171px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image10.png"
+                                    style="
+                                        width: 431px;
+                                        height: 171px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.7"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c5">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 416px;
+                                    height: 58px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image6.png"
+                                    style="
+                                        width: 416px;
+                                        height: 58px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2">
+            <span class="c0"
+                >Now that we have access to this empty function, we can write a
+                failing test :</span
+            >
+        </p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.8"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c5">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 547px;
+                                    height: 160px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image12.png"
+                                    style="
+                                        width: 547px;
+                                        height: 160px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.9"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c5">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 524px;
+                                    height: 349px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image4.png"
+                                    style="
+                                        width: 524px;
+                                        height: 349px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2">
+            <span class="c0"
+                >Alright, now that we have a failing test for that, we can write
+                the encoder so that it passes our test.</span
+            >
+        </p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.10"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c2">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 610px;
+                                    height: 80px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image11.png"
+                                    style="
+                                        width: 610px;
+                                        height: 80px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2">
+            <span class="c0"
+                >I think this will pass, so when we run npm test again, jest
+                will show us a nice terminal output to see if we have made
+                progress:</span
+            >
+        </p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.11"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c2">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 610px;
+                                    height: 240px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image14.png"
+                                    style="
+                                        width: 610px;
+                                        height: 240px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2">
+            <span class="c0"
+                >It was now &nbsp;that I realized that we cannot map over a
+                string in this fashion. We need to use the spread operator to
+                get the characters into an array, and after a few more tweaks,
+                we are getting closer to an answer that we want:</span
+            >
+        </p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.12"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c2">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 610px;
+                                    height: 281.33px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image7.png"
+                                    style="
+                                        width: 610px;
+                                        height: 281.33px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2">
+            <span class="c0"
+                >We can continue this process until eventually we write a
+                function that passes our test:</span
+            >
+        </p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.13"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c5">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 524px;
+                                    height: 306.02px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image5.png"
+                                    style="
+                                        width: 517px;
+                                        height: 639px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <a id="t.3c9232b2d5d9ea2a259f8403ad80b64e9db35916"></a><a id="t.14"></a>
+        <table class="c3">
+            <tbody>
+                <tr class="c6">
+                    <td class="c7" colspan="1" rowspan="1">
+                        <p class="c5">
+                            <span
+                                style="
+                                    overflow: hidden;
+                                    display: inline-block;
+                                    margin: 0px 0px;
+                                    border: 0px solid #000000;
+                                    transform: rotate(0rad) translateZ(0px);
+                                    -webkit-transform: rotate(0rad)
+                                        translateZ(0px);
+                                    width: 517px;
+                                    height: 132.98px;
+                                "
+                                ><img
+                                    alt=""
+                                    src="/posts/TestingWithJest/images/image5.png"
+                                    style="
+                                        width: 517px;
+                                        height: 639px;
+                                        margin-left: 0px;
+                                        margin-top: -506.02px;
+                                        transform: rotate(0rad) translateZ(0px);
+                                        -webkit-transform: rotate(0rad)
+                                            translateZ(0px);
+                                    "
+                                    title=""
+                            /></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2">
+            <span class="c0"
+                >This is a simple example, but it illustrates the power of the
+                Jest testing framework.</span
+            >
+        </p>
+        <div>
+            <p class="c1"><span class="c0"></span></p>
+        </div>
+    </body>
+</html>

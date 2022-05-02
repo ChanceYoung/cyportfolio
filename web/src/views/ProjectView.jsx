@@ -15,7 +15,7 @@ const ProjectView = () => {
     }, [id])
 
     return (
-        <div className="container bg-secondary rounded">
+        <div className="container bg-secondary rounded mt-3">
             <div className="row text-center">
                 {post && post.data && (
                     <div dangerouslySetInnerHTML={{ __html: post.data }}></div>

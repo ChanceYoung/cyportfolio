@@ -18,27 +18,19 @@ code {
     overflow: hidden;
 }
 
-/* Animation */
-.anim-typewriter {
-    animation: typewriter 4s steps(44) 1s 1 normal both,
-        blinkTextCursor 800ms steps(44) infinite normal;
+table{
+    width: 100%;
+    
 }
-@keyframes typewriter {
-    from {
-        width: 0;
-    }
-    to {
-        width: 15em;
-    }
+table p{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
-@keyframes blinkTextCursor {
-    from {
-        border-right-color: rgba(255, 255, 255, 0.75);
-    }
-    to {
-        border-right-color: transparent;
-    }
-}
+
+
 @import '../node_modules/bootswatch/dist/slate/variables';
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../node_modules/bootswatch/dist/slate/bootswatch';
+
